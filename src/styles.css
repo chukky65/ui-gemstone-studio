@@ -1,0 +1,197 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* GDSP — Sovereign Dark design system */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* GDSP semantic palette */
+  --color-night: var(--night);
+  --color-deep: var(--deep);
+  --color-bone: var(--bone);
+  --color-bone-soft: var(--bone-soft);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-clay: var(--clay);
+
+  --font-display: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+}
+
+:root {
+  --radius: 0.25rem;
+
+  /* Sovereign Dark — primary surface */
+  --night: oklch(0.16 0.012 150);
+  --deep: oklch(0.21 0.018 150);
+  --bone: oklch(0.94 0.018 80);
+  --bone-soft: oklch(0.84 0.022 80);
+  --gold: oklch(0.78 0.13 75);
+  --gold-soft: oklch(0.7 0.11 75);
+  --line: oklch(0.78 0.13 75 / 0.18);
+  --line-strong: oklch(0.78 0.13 75 / 0.32);
+  --clay: oklch(0.62 0.16 35);
+
+  /* Mapped tokens */
+  --background: var(--night);
+  --foreground: var(--bone);
+  --card: var(--deep);
+  --card-foreground: var(--bone);
+  --popover: var(--deep);
+  --popover-foreground: var(--bone);
+  --primary: var(--gold);
+  --primary-foreground: var(--night);
+  --secondary: oklch(0.26 0.02 150);
+  --secondary-foreground: var(--bone);
+  --muted: oklch(0.24 0.018 150);
+  --muted-foreground: oklch(0.7 0.02 80);
+  --accent: var(--gold);
+  --accent-foreground: var(--night);
+  --destructive: oklch(0.6 0.2 25);
+  --destructive-foreground: var(--bone);
+  --border: var(--line);
+  --input: oklch(0.78 0.13 75 / 0.22);
+  --ring: var(--gold);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html,
+  body {
+    background-color: var(--color-night);
+    color: var(--color-bone);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: oklch(0.78 0.13 75 / 0.3);
+    color: var(--color-bone);
+  }
+}
+
+/* Atmospheric backgrounds */
+.gdsp-grain {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    oklch(0.78 0.13 75 / 0.06) 1px,
+    transparent 0
+  );
+  background-size: 3px 3px;
+}
+.gdsp-spot {
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 20%, oklch(0.78 0.13 75 / 0.18), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 10% 90%, oklch(0.78 0.13 75 / 0.1), transparent 60%);
+}
+.gdsp-grid {
+  background-image:
+    linear-gradient(to right, oklch(0.78 0.13 75 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(0.78 0.13 75 / 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* Marquee */
+@keyframes gdsp-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.gdsp-marquee {
+  animation: gdsp-marquee 60s linear infinite;
+}
+
+/* Light "bone" surface — cream/white sections that interleave with the dark */
+.gdsp-light {
+  background: linear-gradient(
+    145deg,
+    oklch(0.99 0.006 95) 0%,
+    oklch(0.965 0.016 88) 54%,
+    oklch(0.94 0.036 84) 100%
+  );
+  color: var(--color-night);
+}
+.gdsp-light ::selection {
+  background: oklch(0.78 0.13 75 / 0.4);
+  color: var(--color-night);
+}
+.gdsp-light-grain {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    oklch(0.16 0.012 150 / 0.06) 1px,
+    transparent 0
+  );
+  background-size: 3px 3px;
+}
+.gdsp-light-grid {
+  background-image:
+    linear-gradient(to right, oklch(0.16 0.012 150 / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(0.16 0.012 150 / 0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+.gdsp-light-spot {
+  background:
+    radial-gradient(ellipse 70% 50% at 80% 10%, oklch(0.78 0.13 75 / 0.22), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 0% 100%, oklch(0.78 0.13 75 / 0.14), transparent 60%);
+}
+
+/* Bright white-gold band for high-visibility strips */
+.gdsp-bright-band {
+  background: linear-gradient(
+    130deg,
+    oklch(0.995 0.004 96) 0%,
+    oklch(0.972 0.014 88) 48%,
+    oklch(0.935 0.055 83) 100%
+  );
+  color: var(--color-night);
+}
+
+/* Reveal */
+@keyframes gdsp-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.gdsp-rise {
+  animation: gdsp-rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
