@@ -70,7 +70,7 @@ function ContactPage() {
       {/* Contact info — bright white-gold strip */}
       <section className="gdsp-bright-band border-b border-night/10">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-night/15">
-          <div className="p-10">
+          <div className="p-6 sm:p-10">
             <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-clay mb-5">
               Mail Address
             </div>
@@ -85,7 +85,7 @@ function ContactPage() {
               W/R, Republic of Ghana
             </address>
           </div>
-          <div className="p-10">
+          <div className="p-6 sm:p-10">
             <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-clay mb-5">
               Contact Information
             </div>
@@ -125,7 +125,7 @@ function ContactPage() {
               </div>
             </div>
           </div>
-          <div className="p-10">
+          <div className="p-6 sm:p-10">
             <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-clay mb-5">
               Office Hours
             </div>
@@ -187,7 +187,7 @@ function FormBlock() {
 
       <div className="lg:col-span-7">
         {sent ? (
-          <div className={`border ${t.accentBorder} p-12 text-center ${t.softCardBg}`}>
+          <div className={`border ${t.accentBorder} p-8 sm:p-12 text-center ${t.softCardBg}`}>
             <div
               className={`size-16 mx-auto mb-6 border-2 ${t.accentBorder} rounded-full flex items-center justify-center ${t.accent} text-3xl`}
             >
@@ -323,7 +323,7 @@ function LocationBlock() {
           href="https://maps.google.com/?q=Sekondi-Takoradi,Ghana"
           target="_blank"
           rel="noopener noreferrer"
-          className={`inline-flex items-center gap-3 ${t.btnPrimary} px-7 py-4 text-[11px] font-bold uppercase tracking-[0.2em] transition-colors`}
+          className={`inline-flex items-center justify-center gap-3 ${t.btnPrimary} px-7 py-4 text-[11px] font-bold uppercase tracking-[0.2em] transition-colors w-full sm:w-auto`}
         >
           Get Directions →
         </a>

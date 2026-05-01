@@ -90,11 +90,25 @@
   }
   html,
   body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
     background-color: var(--color-night);
     color: var(--color-bone);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+  }
+  img,
+  svg,
+  video,
+  canvas {
+    max-width: 100%;
+  }
+  p,
+  li,
+  address {
+    overflow-wrap: anywhere;
   }
   ::selection {
     background: oklch(0.78 0.13 75 / 0.3);

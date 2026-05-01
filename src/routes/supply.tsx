@@ -152,11 +152,11 @@ function SupplyPage() {
             { v: "SSP", l: "Primary Method" },
             { v: "80 / 20", l: "Payment Split" },
           ].map((s) => (
-            <div key={s.l} className="p-8 lg:p-10 hover:bg-white/55 transition-colors">
+            <div key={s.l} className="p-6 sm:p-8 lg:p-10 hover:bg-white/55 transition-colors">
               <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-clay mb-5">
                 {s.l}
               </div>
-              <div className="font-display text-5xl tabular-nums text-night">{s.v}</div>
+              <div className="font-display text-4xl sm:text-5xl tabular-nums text-night">{s.v}</div>
             </div>
           ))}
         </div>
@@ -253,7 +253,9 @@ function MethodsBlock() {
                   </span>
                 )}
               </div>
-              <div className={`font-display text-6xl mb-4 ${m.active ? "" : t.accent}`}>{m.a}</div>
+              <div className={`font-display text-5xl sm:text-6xl mb-4 ${m.active ? "" : t.accent}`}>
+                {m.a}
+              </div>
               <h3 className={`text-xl font-medium ${m.active ? "" : t.text}`}>{m.t}</h3>
             </div>
           );
@@ -363,7 +365,7 @@ function StepsBlock() {
               </div>
             </div>
             <div className="lg:col-span-10">
-              <h3 className={`font-display text-3xl mb-4 ${t.text}`}>{s.t}</h3>
+              <h3 className={`font-display text-2xl sm:text-3xl mb-4 ${t.text}`}>{s.t}</h3>
               <p className={`${t.textMuted} leading-relaxed`}>{s.d}</p>
             </div>
           </div>
@@ -415,7 +417,7 @@ function CTABlock() {
         Become a Supplier
       </div>
       <h2
-        className={`font-display text-5xl md:text-7xl mb-8 max-w-4xl mx-auto leading-[0.95] ${t.text}`}
+        className={`font-display text-4xl sm:text-5xl md:text-7xl mb-8 max-w-4xl mx-auto leading-[0.95] ${t.text}`}
       >
         Ready to submit your <em className={`${t.accent} not-italic`}>quotation?</em>
       </h2>
@@ -426,13 +428,13 @@ function CTABlock() {
       <div className="flex flex-wrap justify-center gap-3">
         <Link
           to="/contact"
-          className={`${t.btnPrimary} px-8 py-5 text-[11px] font-bold uppercase tracking-[0.2em] transition-colors`}
+          className={`${t.btnPrimary} px-8 py-5 text-[11px] font-bold uppercase tracking-[0.2em] transition-colors w-full sm:w-auto text-center`}
         >
           Contact GDSP
         </Link>
         <Link
           to="/members"
-          className={`${t.btnGhost} px-8 py-5 text-[11px] font-bold uppercase tracking-[0.2em] transition-colors`}
+          className={`${t.btnGhost} px-8 py-5 text-[11px] font-bold uppercase tracking-[0.2em] transition-colors w-full sm:w-auto text-center`}
         >
           Meet Our Board
         </Link>

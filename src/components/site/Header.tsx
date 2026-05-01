@@ -14,14 +14,14 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="relative px-6 lg:px-10 h-20 flex justify-between items-center border-b border-line bg-night/80 backdrop-blur-md sticky top-0 z-40">
-      <Link to="/" className="flex items-center gap-4 group">
-        <div className="size-10 border border-gold/40 rotate-45 flex items-center justify-center transition-transform group-hover:scale-110">
-          <div className="size-3 bg-gold -rotate-45" />
+    <nav className="relative px-4 sm:px-6 lg:px-10 h-16 sm:h-20 flex justify-between items-center border-b border-line bg-night/80 backdrop-blur-md sticky top-0 z-40">
+      <Link to="/" className="flex items-center gap-2 sm:gap-4 group min-w-0">
+        <div className="size-8 sm:size-10 border border-gold/40 rotate-45 flex items-center justify-center transition-transform group-hover:scale-110 shrink-0">
+          <div className="size-2.5 sm:size-3 bg-gold -rotate-45" />
         </div>
-        <div>
-          <div className="font-display text-2xl leading-none tracking-tight">GDSP</div>
-          <div className="text-[9px] font-mono uppercase tracking-[0.3em] text-bone/40 mt-1">
+        <div className="min-w-0">
+          <div className="font-display text-xl sm:text-2xl leading-none tracking-tight">GDSP</div>
+          <div className="hidden sm:block text-[8px] md:text-[9px] font-mono uppercase tracking-[0.18em] md:tracking-[0.3em] text-bone/40 mt-1 truncate">
             Ghana · West Africa Authority
           </div>
         </div>
@@ -56,7 +56,7 @@ export function Header() {
       </div>
 
       <button
-        className="lg:hidden size-10 border border-line flex items-center justify-center"
+        className="lg:hidden size-9 sm:size-10 border border-line flex items-center justify-center shrink-0"
         onClick={() => setOpen((v) => !v)}
         aria-label="Toggle menu"
       >
@@ -68,14 +68,14 @@ export function Header() {
       </button>
 
       {open && (
-        <div className="absolute top-20 left-0 right-0 border-y border-line bg-night lg:hidden">
+        <div className="absolute top-16 sm:top-20 left-0 right-0 border-y border-line bg-night lg:hidden max-h-[70svh] overflow-y-auto">
           <div className="flex flex-col">
             {NAV.map((item) => (
               <Link
                 key={item.to}
                 to={item.to}
                 onClick={() => setOpen(false)}
-                className="px-6 py-4 border-b border-line/60 text-sm uppercase tracking-widest font-mono hover:text-gold"
+                className="px-4 sm:px-6 py-4 border-b border-line/60 text-sm uppercase tracking-[0.2em] font-mono hover:text-gold"
               >
                 {item.label}
               </Link>

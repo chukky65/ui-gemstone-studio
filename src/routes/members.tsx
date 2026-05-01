@@ -132,17 +132,19 @@ function MembersPage() {
         intro="Meet the dedicated professionals guiding GDSP — a management board of experienced specialists in procurement, law, finance, evaluation and development."
       />
 
-      <section className="bg-night border-b border-line">
-        <div className="max-w-[1400px] mx-auto grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-line">
+      <section className="gdsp-bright-band border-b border-night/10">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-night/15">
           {[
             { v: "1", l: "Project Director" },
             { v: "1", l: "Assistant Director" },
             { v: "6", l: "Evaluation Members" },
             { v: "—", l: "Administrative Staff" },
           ].map((s) => (
-            <div key={s.l} className="p-8 lg:p-10">
-              <div className="font-display text-5xl text-gold tabular-nums mb-3">{s.v}</div>
-              <div className="text-[10px] font-mono uppercase tracking-widest text-bone/60">
+            <div key={s.l} className="p-6 sm:p-8 lg:p-10 hover:bg-white/55 transition-colors">
+              <div className="font-display text-4xl sm:text-5xl text-clay tabular-nums mb-3">
+                {s.v}
+              </div>
+              <div className="text-[10px] font-mono uppercase tracking-widest text-night/60">
                 {s.l}
               </div>
             </div>
@@ -187,7 +189,7 @@ function LeadersBlock() {
           >
             <div className="lg:col-span-3">
               <div
-                className={`size-32 border ${t.accentBorder} rounded-full flex items-center justify-center font-display text-5xl ${t.accent} mb-6`}
+                className={`size-24 sm:size-32 border ${t.accentBorder} rounded-full flex items-center justify-center font-display text-4xl sm:text-5xl ${t.accent} mb-6`}
               >
                 {l.i}
               </div>
@@ -285,7 +287,7 @@ function CTABlock() {
         Work With GDSP
       </div>
       <h2
-        className={`font-display text-5xl md:text-7xl mb-8 max-w-4xl mx-auto leading-[0.95] ${t.text}`}
+        className={`font-display text-4xl sm:text-5xl md:text-7xl mb-8 max-w-4xl mx-auto leading-[0.95] ${t.text}`}
       >
         Interested in partnering or <em className={`${t.accent} not-italic`}>supplying?</em>
       </h2>
@@ -296,13 +298,13 @@ function CTABlock() {
       <div className="flex flex-wrap justify-center gap-3">
         <Link
           to="/contact"
-          className={`${t.btnPrimary} px-8 py-5 text-[11px] font-bold uppercase tracking-[0.2em] transition-colors`}
+          className={`${t.btnPrimary} px-8 py-5 text-[11px] font-bold uppercase tracking-[0.2em] transition-colors w-full sm:w-auto text-center`}
         >
           Contact the Board
         </Link>
         <Link
           to="/supply"
-          className={`${t.btnGhost} px-8 py-5 text-[11px] font-bold uppercase tracking-[0.2em] transition-colors`}
+          className={`${t.btnGhost} px-8 py-5 text-[11px] font-bold uppercase tracking-[0.2em] transition-colors w-full sm:w-auto text-center`}
         >
           Supply Procedures
         </Link>

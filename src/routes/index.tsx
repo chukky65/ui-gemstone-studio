@@ -1,9 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { TopBar } from "@/components/site/TopBar";
 import { Section, SectionFlow, SectionHeading, useToneTokens } from "@/components/site/Section";
-import heroImg from "@/assets/hero-gdsp.jpg";
+import heroHealthcareImg from "@/assets/hero-healthcare.png";
+import heroPortLogisticsImg from "@/assets/hero-port-logistics.png";
+import heroInfrastructureImg from "@/assets/hero-infrastructure.png";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -21,7 +24,7 @@ export const Route = createFileRoute("/")({
         content:
           "West Africa's premier procurement authority. US$973.6M MoU value. 553M+ people served.",
       },
-      { property: "og:image", content: heroImg },
+      { property: "og:image", content: heroPortLogisticsImg },
     ],
   }),
 });
@@ -117,51 +120,147 @@ const AGENTS = [
   { i: "MN", n: "Mr. Martin Nkrumah" },
 ];
 
+const HOME_VIDEO_THUMBNAIL = "https://img.youtube.com/vi/i_WCAKHmLPk/hqdefault.jpg";
+
+const HERO_SLIDES = [
+  {
+    id: "healthcare",
+    image: heroHealthcareImg,
+    objectPosition: "50% 50%",
+    label: "Healthcare Delivery",
+    alt: "Modern surgical team in a high-tech operating theatre representing healthcare procurement and medical infrastructure delivery.",
+    overlay:
+      "radial-gradient(ellipse 72% 58% at 82% 18%, oklch(0.78 0.13 75 / 0.2), transparent 64%), radial-gradient(ellipse 55% 44% at 10% 92%, oklch(0.78 0.13 75 / 0.12), transparent 63%)",
+  },
+  {
+    id: "port",
+    image: heroPortLogisticsImg,
+    objectPosition: "50% 50%",
+    label: "Port & Freight Logistics",
+    alt: "Cargo port at sunset with container ship, cranes, trucks and stacked freight for international trade operations.",
+    overlay:
+      "radial-gradient(ellipse 66% 52% at 20% 14%, oklch(0.78 0.13 75 / 0.24), transparent 60%), radial-gradient(ellipse 72% 58% at 88% 88%, oklch(0.62 0.16 35 / 0.14), transparent 64%)",
+  },
+  {
+    id: "infrastructure",
+    image: heroInfrastructureImg,
+    objectPosition: "50% 50%",
+    label: "Infrastructure Development",
+    alt: "Urban highway interchange and cranes at golden hour representing large-scale infrastructure growth and mobility.",
+    overlay:
+      "radial-gradient(ellipse 76% 60% at 74% 20%, oklch(0.62 0.16 35 / 0.22), transparent 62%), radial-gradient(ellipse 56% 48% at 12% 88%, oklch(0.78 0.13 75 / 0.12), transparent 61%)",
+  },
+] as const;
+
 function Home() {
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (isPaused) return;
+
+    const timer = window.setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+    }, 10000);
+
+    return () => window.clearInterval(timer);
+  }, [isPaused]);
+
+  const nextSlide = () => {
+    setActiveSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+  };
+
+  const prevSlide = () => {
+    setActiveSlide((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
+  };
+
   return (
     <div className="min-h-dvh bg-night text-bone">
       <TopBar />
       <Header />
 
-      {/* HERO — unmanaged, always dark with image */}
-      <section className="relative overflow-hidden border-b border-line">
-        <img
-          src={heroImg}
-          alt="Aerial view at dusk of a West African port with cargo cranes, modern infrastructure buildings, and golden agricultural fields stretching to the horizon"
-          width={1920}
-          height={1080}
-          className="absolute inset-0 w-full h-full object-cover opacity-50"
-        />
+      {/* HERO — image slider */}
+      <section
+        className="relative overflow-hidden border-b border-line min-h-[calc(100svh-6.5rem)] sm:min-h-[calc(100svh-8rem)]"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
+        {HERO_SLIDES.map((slide, idx) => (
+          <img
+            key={slide.id}
+            src={slide.image}
+            alt={slide.alt}
+            width={1920}
+            height={1080}
+            style={{ objectPosition: slide.objectPosition }}
+            className={`absolute inset-0 w-full h-full object-cover transition-[opacity,transform] duration-[1400ms] ease-out ${
+              idx === activeSlide ? "opacity-50 scale-100" : "opacity-0 scale-110"
+            }`}
+          />
+        ))}
         <div className="absolute inset-0 bg-gradient-to-r from-night via-night/85 to-night/30" />
         <div className="absolute inset-0 bg-gradient-to-t from-night via-night/40 to-transparent" />
+        {HERO_SLIDES.map((slide, idx) => (
+          <div
+            key={`${slide.id}-overlay`}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              idx === activeSlide ? "opacity-100" : "opacity-0"
+            }`}
+            style={{ background: slide.overlay }}
+          />
+        ))}
         <div className="absolute inset-0 gdsp-grain opacity-60 pointer-events-none" />
-        <div className="relative px-6 lg:px-10 pt-20 lg:pt-28 pb-20 max-w-[1400px] mx-auto">
-          <div className="flex items-center gap-3 mb-10 text-gold">
-            <div className="w-10 h-px bg-gold" />
-            <span className="text-[11px] font-mono uppercase tracking-[0.4em]">
+
+        <div className="absolute top-4 right-4 sm:top-6 sm:right-6 lg:top-8 lg:right-10 z-10 flex items-center gap-2">
+          <button
+            type="button"
+            aria-label="Previous hero slide"
+            onClick={prevSlide}
+            className="size-9 sm:size-10 border border-bone/35 bg-night/45 text-bone hover:border-gold hover:text-gold transition-colors flex items-center justify-center"
+          >
+            ‹
+          </button>
+          <button
+            type="button"
+            aria-label="Next hero slide"
+            onClick={nextSlide}
+            className="size-9 sm:size-10 border border-bone/35 bg-night/45 text-bone hover:border-gold hover:text-gold transition-colors flex items-center justify-center"
+          >
+            ›
+          </button>
+        </div>
+
+        <div className="relative px-4 sm:px-6 lg:px-10 pt-14 sm:pt-20 lg:pt-28 pb-16 sm:pb-20 max-w-[1400px] mx-auto">
+          <div className="flex items-center gap-3 mb-8 sm:mb-10 text-gold">
+            <div className="w-8 sm:w-10 h-px bg-gold" />
+            <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.25em] sm:tracking-[0.4em]">
               Infrastructure & Logistics
             </span>
           </div>
-          <h1 className="gdsp-rise font-display text-6xl sm:text-7xl md:text-8xl lg:text-[10rem] leading-[0.88] tracking-[-0.02em] max-w-6xl">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-gold/35 text-gold text-[10px] font-mono uppercase tracking-[0.2em] mb-6 sm:mb-8 bg-night/30 backdrop-blur-sm">
+            <span className="size-1 rounded-full bg-gold animate-pulse" />
+            {HERO_SLIDES[activeSlide].label}
+          </div>
+          <h1 className="gdsp-rise font-display text-4xl sm:text-6xl md:text-8xl lg:text-[10rem] leading-[0.9] tracking-[-0.02em] max-w-6xl">
             Building Africa's <em className="text-gold not-italic font-normal">development</em>{" "}
             <span className="italic">future.</span>
           </h1>
-          <div className="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
-            <p className="lg:col-span-5 text-lg text-bone/80 leading-relaxed max-w-md">
+          <div className="mt-10 sm:mt-14 grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-end">
+            <p className="lg:col-span-5 text-base sm:text-lg text-bone/80 leading-relaxed max-w-md">
               A sovereign procurement authority overseeing infrastructure, healthcare, agriculture
               and consumables across West Africa — connecting verified suppliers to{" "}
               <span className="text-bone">553 million people</span>.
             </p>
-            <div className="lg:col-span-4 flex flex-wrap gap-3">
+            <div className="lg:col-span-4 flex flex-col sm:flex-row flex-wrap gap-3">
               <Link
                 to="/supply"
-                className="bg-gold text-night px-7 py-4 text-[11px] font-bold uppercase tracking-[0.2em] flex items-center gap-3 hover:bg-bone transition-colors"
+                className="bg-gold text-night px-7 py-4 text-[11px] font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-3 hover:bg-bone transition-colors w-full sm:w-auto"
               >
                 Explore Supply <span>→</span>
               </Link>
               <Link
                 to="/profile"
-                className="border border-bone/30 text-bone px-7 py-4 text-[11px] font-bold uppercase tracking-[0.2em] hover:border-gold hover:text-gold transition-colors backdrop-blur-sm"
+                className="border border-bone/30 text-bone px-7 py-4 text-[11px] font-bold uppercase tracking-[0.2em] hover:border-gold hover:text-gold transition-colors backdrop-blur-sm text-center w-full sm:w-auto"
               >
                 Our Profile
               </Link>
@@ -171,6 +270,19 @@ function Home() {
               <br />
               Republic of Ghana
             </div>
+          </div>
+          <div className="mt-8 sm:mt-10 flex items-center gap-2">
+            {HERO_SLIDES.map((slide, idx) => (
+              <button
+                key={`${slide.id}-dot`}
+                type="button"
+                aria-label={`Go to ${slide.label} slide`}
+                onClick={() => setActiveSlide(idx)}
+                className={`h-1.5 rounded-full transition-all ${
+                  idx === activeSlide ? "w-10 bg-gold" : "w-4 bg-bone/45 hover:bg-bone/70"
+                }`}
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -184,7 +296,7 @@ function Home() {
             { l: "Accredited Agents", v: "10", s: "+" },
             { l: "Partnership", v: "5", s: " yr" },
           ].map((s) => (
-            <div key={s.l} className="p-8 lg:p-10 hover:bg-white/55 transition-colors group">
+            <div key={s.l} className="p-6 sm:p-8 lg:p-10 hover:bg-white/55 transition-colors group">
               <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-clay mb-5">
                 {s.l}
               </div>
@@ -201,7 +313,7 @@ function Home() {
       {/* TICKER — gold band */}
       <section className="bg-gold text-night border-b border-night/20 overflow-hidden">
         <div className="flex items-center">
-          <div className="px-6 py-4 bg-night text-gold text-[10px] font-mono uppercase tracking-[0.3em] flex-shrink-0 flex items-center gap-2">
+          <div className="px-4 sm:px-6 py-4 bg-night text-gold text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.16em] sm:tracking-[0.3em] flex-shrink-0 flex items-center gap-2">
             <span className="size-1 rounded-full bg-gold animate-pulse" />
             Latest
           </div>
@@ -345,7 +457,9 @@ function ProjectsBlock() {
     <>
       <div className={`flex items-center gap-3 mb-6 ${t.accent}`}>
         <div className={`w-8 h-px ${t.tone === "dark" ? "bg-gold" : "bg-clay"}`} />
-        <span className="text-[11px] font-mono uppercase tracking-[0.4em]">What We Cover</span>
+        <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.2em] sm:tracking-[0.4em]">
+          What We Cover
+        </span>
       </div>
       <SectionHeading size="xl" className="mb-16">
         Discover our <em className={`${t.accent} not-italic`}>projects.</em>
@@ -357,7 +471,7 @@ function ProjectsBlock() {
             className={`${t.cardBg} p-10 ${t.cardBgHover} transition-colors group relative`}
           >
             <div
-              className={`font-display text-7xl ${t.tone === "dark" ? "text-gold/30 group-hover:text-gold" : "text-clay/30 group-hover:text-clay"} transition-colors mb-4`}
+              className={`font-display text-6xl sm:text-7xl ${t.tone === "dark" ? "text-gold/30 group-hover:text-gold" : "text-clay/30 group-hover:text-clay"} transition-colors mb-4`}
             >
               {p.n}
             </div>
@@ -402,7 +516,7 @@ function SectorsBlock() {
         </ul>
       </div>
       <div className="lg:col-span-5">
-        <div className={`border ${t.border} p-8 ${t.softCardBg} sticky top-28`}>
+        <div className={`border ${t.border} p-6 sm:p-8 ${t.softCardBg} lg:sticky lg:top-28`}>
           <div className={`text-[10px] font-mono uppercase tracking-[0.3em] ${t.accent} mb-6`}>
             Major Donors & Partners
           </div>
@@ -447,7 +561,7 @@ function QuoteBlock() {
         Statement — Project Director
       </div>
       <blockquote
-        className={`font-display text-4xl md:text-6xl leading-[1.05] max-w-5xl ${t.text}`}
+        className={`font-display text-3xl sm:text-4xl md:text-6xl leading-[1.05] max-w-5xl ${t.text}`}
       >
         <span className={t.accent}>"</span>The Funds will be used judiciously to cover payment for
         supplies in <em className={t.accent}>Health Related Areas</em> — equipping Hospitals,
@@ -512,9 +626,19 @@ function WatchBlock() {
           rel="noopener noreferrer"
           className={`block aspect-video relative border ${t.border} ${t.cardBg} group overflow-hidden`}
         >
+          <img
+            src={HOME_VIDEO_THUMBNAIL}
+            alt="Video preview for GDSP mission and impact presentation on YouTube"
+            loading="lazy"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-night/80 via-night/20 to-transparent" />
           <div
             className={`absolute inset-0 ${t.tone === "dark" ? "gdsp-grid" : "gdsp-light-grid"} opacity-50`}
           />
+          <div className="absolute top-4 left-4 px-3 py-1 bg-night/70 border border-gold/40 text-gold text-[10px] font-mono uppercase tracking-[0.2em]">
+            Watch Briefing
+          </div>
           <div className="absolute inset-0 flex items-center justify-center">
             <div
               className={`size-20 rounded-full ${t.tone === "dark" ? "bg-gold" : "bg-clay"} flex items-center justify-center group-hover:scale-110 transition-transform`}
@@ -626,7 +750,7 @@ function VisionBlock() {
         <div className={`text-[10px] font-mono uppercase tracking-[0.3em] ${t.accent} mb-6`}>
           Vision 2025
         </div>
-        <h2 className={`font-display text-6xl md:text-8xl leading-[0.9] ${t.text}`}>
+        <h2 className={`font-display text-4xl sm:text-6xl md:text-8xl leading-[0.9] ${t.text}`}>
           Our <em className={`${t.accent} not-italic`}>vision.</em>
         </h2>
       </div>

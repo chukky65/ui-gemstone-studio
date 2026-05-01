@@ -50,8 +50,8 @@ interface SectionProps {
 }
 
 const padMap = {
-  default: "px-6 lg:px-10 py-32",
-  tight: "px-6 lg:px-10 py-24",
+  default: "px-4 sm:px-6 lg:px-10 py-16 sm:py-24 lg:py-32",
+  tight: "px-4 sm:px-6 lg:px-10 py-14 sm:py-20 lg:py-24",
   none: "",
 } as const;
 
@@ -150,14 +150,16 @@ export function SectionHeading({
   const t = useToneTokens();
   const sizeClass =
     size === "xl"
-      ? "text-5xl md:text-7xl"
+      ? "text-4xl sm:text-5xl md:text-7xl"
       : size === "md"
-        ? "text-4xl md:text-5xl"
-        : "text-5xl md:text-6xl";
+        ? "text-3xl sm:text-4xl md:text-5xl"
+        : "text-4xl sm:text-5xl md:text-6xl";
   return (
     <div className={className}>
       {eyebrow && (
-        <div className={`text-[10px] font-mono uppercase tracking-[0.3em] ${t.accent} mb-6`}>
+        <div
+          className={`text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.18em] sm:tracking-[0.3em] ${t.accent} mb-4 sm:mb-6`}
+        >
           {eyebrow}
         </div>
       )}

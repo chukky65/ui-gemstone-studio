@@ -170,11 +170,11 @@ function ProfilePage() {
             { v: "23", l: "Core Functions" },
             { v: "2030", l: "Vision Year" },
           ].map((s) => (
-            <div key={s.l} className="p-8 lg:p-10 hover:bg-white/55 transition-colors">
+            <div key={s.l} className="p-6 sm:p-8 lg:p-10 hover:bg-white/55 transition-colors">
               <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-clay mb-5">
                 {s.l}
               </div>
-              <div className="font-display text-5xl tabular-nums text-night">{s.v}</div>
+              <div className="font-display text-4xl sm:text-5xl tabular-nums text-night">{s.v}</div>
             </div>
           ))}
         </div>
@@ -419,13 +419,13 @@ function CommitmentBlock() {
       <div className="mt-12 flex flex-wrap gap-3">
         <Link
           to="/supply"
-          className={`${t.btnPrimary} px-7 py-4 text-[11px] font-bold uppercase tracking-[0.2em] transition-colors`}
+          className={`${t.btnPrimary} px-7 py-4 text-[11px] font-bold uppercase tracking-[0.2em] transition-colors w-full sm:w-auto text-center`}
         >
           Explore Supply
         </Link>
         <Link
           to="/contact"
-          className={`${t.btnGhost} px-7 py-4 text-[11px] font-bold uppercase tracking-[0.2em] transition-colors`}
+          className={`${t.btnGhost} px-7 py-4 text-[11px] font-bold uppercase tracking-[0.2em] transition-colors w-full sm:w-auto text-center`}
         >
           Get in Touch
         </Link>
