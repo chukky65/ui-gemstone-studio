@@ -30,14 +30,14 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "GDSP — Ghana Development Supply Projects" },
+      { title: "WAPPA — West Africa's Premier Procurement Authority" },
       {
         name: "description",
         content:
           "West Africa's premier procurement authority overseeing infrastructure, healthcare and supply across the region.",
       },
-      { name: "author", content: "Ghana Development Supply Projects" },
-      { property: "og:title", content: "GDSP — Ghana Development Supply Projects" },
+      { name: "author", content: "West Africa's Premier Procurement Authority" },
+      { property: "og:title", content: "WAPPA — West Africa's Premier Procurement Authority" },
       {
         property: "og:description",
         content:
@@ -45,7 +45,7 @@ export const Route = createRootRoute({
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:title", content: "GDSP — Ghana Development Supply Projects" },
+      { name: "twitter:title", content: "WAPPA — West Africa's Premier Procurement Authority" },
       {
         name: "twitter:description",
         content:

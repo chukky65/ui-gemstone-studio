@@ -9,13 +9,13 @@ export const Route = createFileRoute("/profile")({
   component: ProfilePage,
   head: () => ({
     meta: [
-      { title: "Our Profile — GDSP" },
+      { title: "Our Profile — WAPPA" },
       {
         name: "description",
         content:
-          "About Ghana Development Supply Projects — established 2014. Our mission, mandate, principles and 23 core operational functions.",
+          "About West Africa's Premier Procurement Authority — established 2014. Our mission, mandate, principles and 23 core operational functions.",
       },
-      { property: "og:title", content: "Our Profile — GDSP" },
+      { property: "og:title", content: "Our Profile — WAPPA" },
       {
         property: "og:description",
         content:
@@ -43,7 +43,7 @@ const SECTORS = [
 const MILESTONES = [
   {
     y: "2014",
-    t: "GDSP Established",
+    t: "WAPPA Established",
     d: "Founded as a centralised procurement agency for the Government of Ghana, providing legal and institutional framework for public procurement.",
   },
   {
@@ -132,7 +132,7 @@ const FUNCTIONS = [
   "Ensure that the Statistics Unit is accessible to all Organs and Member States with updated information.",
   "Design and implement monitoring and evaluation procedures for assessing programme achievements.",
   "Strengthen existing relations and develop relations with other world regions for mutual cooperation.",
-  "Seek new areas of cooperation with international partners to expand GDSP's reach and impact.",
+  "Seek new areas of cooperation with international partners to expand WAPPA's reach and impact.",
   "Promote a positive image of Africa within the international arena through engagement.",
   "Popularise the African Union and market its programmes and activities to a wider global audience.",
   "Initiate, develop and manage policy for international cooperation and resource mobilisation.",
@@ -151,14 +151,14 @@ function ProfilePage() {
       <Header />
 
       <PageHero
-        eyebrow="About GDSP"
+        eyebrow="About WAPPA"
         breadcrumb="Our Profile"
         title={
           <>
             Our <em className="text-gold not-italic">profile.</em>
           </>
         }
-        intro="Ghana Development Supply Projects was established to provide a legal, institutional and professional framework for public procurement — serving the people of Ghana and the West African sub-region with accountability and integrity."
+        intro="West Africa's Premier Procurement Authority was established to provide a legal, institutional and professional framework for public procurement — serving the people of Ghana and the West African sub-region with accountability and integrity."
       />
 
       {/* Quick stats — bright white-gold strip */}
@@ -212,20 +212,20 @@ function AboutBlock() {
     <>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
         <div className="lg:col-span-5">
-          <SectionHeading eyebrow="About GDSP">
+          <SectionHeading eyebrow="About WAPPA">
             Established to serve <em className={`${t.accent} not-italic`}>Ghana & West Africa.</em>
           </SectionHeading>
         </div>
         <div className={`lg:col-span-7 space-y-5 text-lg ${t.textMuted} leading-relaxed`}>
           <p>
-            The Ghana Development Supply Project (GDSP) was originally established in 2014 as a
-            centralised procurement agency for the Government of Ghana — to carry out the
+            West Africa's Premier Procurement Authority (WAPPA) was originally established in 2014
+            as a centralised procurement agency for the Government of Ghana — to carry out the
             responsibility of Government Supply Orders and provide a legal, institutional and
             professional framework for public procurement.
           </p>
           <p>
             Infrastructure development is a key driver for progress across the African continent and
-            a critical enabler for sustainable and socially inclusive growth. GDSP operates within
+            a critical enabler for sustainable and socially inclusive growth. WAPPA operates within
             the Program for Infrastructure Development (PIDA) — the strategic framework transforming
             Africa through modern, interconnected infrastructure.
           </p>
@@ -370,7 +370,7 @@ function FunctionsBlock() {
         23 operational <em className={`${t.accent} not-italic`}>functions.</em>
       </SectionHeading>
       <p className={`mt-6 ${t.textMuted} max-w-3xl mb-16 leading-relaxed`}>
-        The following functions define how GDSP delivers on its mandate — from policy formulation
+        The following functions define how WAPPA delivers on its mandate — from policy formulation
         and strategic planning to international cooperation, resource mobilisation and programme
         evaluation.
       </p>
@@ -407,13 +407,13 @@ function CommitmentBlock() {
           possibilities and benefits to the citizens of Africa.
         </p>
         <p>
-          Ghana Development Supply Projects is focused on making development projects in Ghana
-          easier and more efficient. We believe Ghana can become a global benchmark for ethical and
-          effective tendering practices — because together, we can build a better Ghana.
+          West Africa's Premier Procurement Authority is focused on making development projects in
+          Ghana easier and more efficient. We believe Ghana can become a global benchmark for
+          ethical and effective tendering practices — because together, we can build a better Ghana.
         </p>
         <p className={`${t.textFaint} italic`}>
           A service culture of excellence, developed through consistent application of our values,
-          will be the foundation on which GDSP achieves its mission for the next decade and beyond.
+          will be the foundation on which WAPPA achieves its mission for the next decade and beyond.
         </p>
       </div>
       <div className="mt-12 flex flex-wrap gap-3">

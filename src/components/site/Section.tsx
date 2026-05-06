@@ -1,7 +1,7 @@
 import { createContext, useContext, type ReactNode } from "react";
 
 /**
- * GDSP Section system — auto-alternating dark/light surfaces.
+ * WAPPA Section system — auto-alternating dark/light surfaces.
  *
  * Wrap a page's content in <SectionFlow> and use <Section> for each band.
  * Surfaces alternate dark → light → dark automatically. You can pin a band

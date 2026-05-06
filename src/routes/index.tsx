@@ -12,13 +12,13 @@ export const Route = createFileRoute("/")({
   component: Home,
   head: () => ({
     meta: [
-      { title: "GDSP — Building Africa's Development Future" },
+      { title: "WAPPA — Building Africa's Development Future" },
       {
         name: "description",
         content:
-          "Ghana Development Supply Projects (GDSP) — West Africa's premier procurement authority overseeing infrastructure, healthcare and supply across the region.",
+          "WAPPA - West Africa's Premier Procurement Authority overseeing infrastructure, healthcare and supply across the region.",
       },
-      { property: "og:title", content: "GDSP — Building Africa's Development Future" },
+      { property: "og:title", content: "WAPPA — Building Africa's Development Future" },
       {
         property: "og:description",
         content:
@@ -105,19 +105,6 @@ const SERVICES = [
     t: "Resource Management",
     d: "Our aim is to support you in strengthening efficiency and sustainability. We reduce your workload while constantly providing market information, analysis and projections — keeping you current with target market developments.",
   },
-];
-
-const AGENTS = [
-  { i: "MK", n: "Mr. Martin Kofi" },
-  { i: "AN", n: "Mr. Albert Nkrumah" },
-  { i: "SK", n: "Mr. Steven Kwasi" },
-  { i: "CD", n: "Mr. Charles Danso" },
-  { i: "PK", n: "Mr. Paul Kojo" },
-  { i: "PA", n: "Mr. Peter Appiah" },
-  { i: "DK", n: "Mr. Daniel Kelvin" },
-  { i: "GA", n: "Miss. Gloria Amah" },
-  { i: "PN", n: "Miss. Patricia Nana" },
-  { i: "MN", n: "Mr. Martin Nkrumah" },
 ];
 
 const HOME_VIDEO_THUMBNAIL = "https://img.youtube.com/vi/i_WCAKHmLPk/hqdefault.jpg";
@@ -293,7 +280,7 @@ function Home() {
           {[
             { l: "MoU Value", v: "$973.6", s: "M" },
             { l: "People Served", v: "553", s: "M+" },
-            { l: "Accredited Agents", v: "10", s: "+" },
+            { l: "Regional Offices", v: "6", s: "+" },
             { l: "Partnership", v: "5", s: " yr" },
           ].map((s) => (
             <div key={s.l} className="p-6 sm:p-8 lg:p-10 hover:bg-white/55 transition-colors group">
@@ -365,11 +352,6 @@ function Home() {
           <ServicesBlock />
         </Section>
 
-        {/* AGENTS */}
-        <Section>
-          <AgentsBlock />
-        </Section>
-
         {/* VISION */}
         <Section atmosphere="grid">
           <VisionBlock />
@@ -390,7 +372,7 @@ function WelcomeBlock() {
       <div className="lg:col-span-5">
         <div className={`border ${t.border} p-10 ${t.softCardBg} backdrop-blur-sm`}>
           <div className={`text-[10px] font-mono uppercase tracking-[0.3em] ${t.accent} mb-4`}>
-            GDSP At a Glance
+            WAPPA At a Glance
           </div>
           <h3 className={`font-display text-4xl mb-4 ${t.text}`}>Procurement with Purpose</h3>
           <p className={`${t.textMuted} leading-relaxed mb-10`}>
@@ -401,7 +383,7 @@ function WelcomeBlock() {
             {[
               { v: "$973M+", l: "Total MoU Value" },
               { v: "553M+", l: "People Served" },
-              { v: "10+", l: "Accredited Agents" },
+              { v: "6+", l: "Regional Offices" },
               { v: "2020", l: "MoU Signed" },
             ].map((s) => (
               <div key={s.l} className={`${t.cardBg} p-5`}>
@@ -417,12 +399,12 @@ function WelcomeBlock() {
         </div>
       </div>
       <div className="lg:col-span-7">
-        <SectionHeading eyebrow="Welcome to GDSP">
-          Ghana Development <em className={`${t.accent} not-italic`}>Supply Projects.</em>
+        <SectionHeading eyebrow="Welcome to WAPPA">
+          West Africa's Premier <em className={`${t.accent} not-italic`}>Procurement Authority.</em>
         </SectionHeading>
         <div className={`mt-10 space-y-5 text-lg ${t.textMuted} leading-relaxed`}>
           <p>
-            GDSP has been assigned the responsibility to procure various products from verified
+            WAPPA has been assigned the responsibility to procure various products from verified
             suppliers and companies on behalf of both private and public sector organisations across
             Ghana and West Africa.
           </p>
@@ -491,7 +473,7 @@ function SectorsBlock() {
       <div className="lg:col-span-7">
         <SectionHeading eyebrow="Our Mandate">Sectors we serve.</SectionHeading>
         <p className={`${t.textMuted} max-w-2xl my-10 leading-relaxed`}>
-          GDSP procures for a broad range of public and private sector organisations, ensuring
+          WAPPA procures for a broad range of public and private sector organisations, ensuring
           quality, compliance and value.
         </p>
         <ul className={`divide-y ${t.divider} border-y ${t.border}`}>
@@ -579,7 +561,7 @@ function QuoteBlock() {
           <div
             className={`text-sm ${t.textMuted} font-mono uppercase tracking-widest text-[11px] mt-1`}
           >
-            Project Director, GDSP · Tamale, Northern Region
+            Project Director, WAPPA · Tamale, Northern Region
           </div>
         </div>
       </div>
@@ -596,7 +578,7 @@ function WatchBlock() {
           Learn more about our <em className={`${t.accent} not-italic`}>mission & impact.</em>
         </SectionHeading>
         <p className={`mt-8 ${t.textMuted} leading-relaxed mb-5`}>
-          Watch our official presentation to understand how GDSP is transforming public procurement
+          Watch our official presentation to understand how WAPPA is transforming public procurement
           in West Africa — ensuring fair evaluation, accountable spending and meaningful impact for
           communities across the region.
         </p>
@@ -628,7 +610,7 @@ function WatchBlock() {
         >
           <img
             src={HOME_VIDEO_THUMBNAIL}
-            alt="Video preview for GDSP mission and impact presentation on YouTube"
+            alt="Video preview for WAPPA mission and impact presentation on YouTube"
             loading="lazy"
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -703,45 +685,6 @@ function ServicesBlock() {
   );
 }
 
-function AgentsBlock() {
-  const t = useToneTokens();
-  return (
-    <>
-      <SectionHeading eyebrow="Officially Recognised" size="xl">
-        Our accredited <em className={`${t.accent} not-italic`}>agents.</em>
-      </SectionHeading>
-      <p className={`mt-6 ${t.textMuted} max-w-2xl mb-16 leading-relaxed`}>
-        Honoured for their excellent performance in sourcing verified suppliers and delivering real
-        impact across West Africa.
-      </p>
-      <div
-        className={`grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-px ${t.divider} border ${t.border}`}
-      >
-        {AGENTS.map((a) => (
-          <div
-            key={a.n}
-            className={`${t.cardBg} p-6 group ${t.cardBgHover} transition-colors text-center`}
-          >
-            <div
-              className={`size-16 mx-auto mb-4 border ${t.accentBorder} rounded-full flex items-center justify-center font-mono ${t.accent} transition-colors ${
-                t.tone === "dark"
-                  ? "group-hover:bg-gold group-hover:text-night"
-                  : "group-hover:bg-clay group-hover:text-bone"
-              }`}
-            >
-              {a.i}
-            </div>
-            <div className={`text-sm font-medium ${t.text}`}>{a.n}</div>
-            <div className={`text-[10px] font-mono uppercase tracking-widest ${t.textFaint} mt-1`}>
-              Accredited
-            </div>
-          </div>
-        ))}
-      </div>
-    </>
-  );
-}
-
 function VisionBlock() {
   const t = useToneTokens();
   return (
@@ -762,7 +705,7 @@ function VisionBlock() {
           sector evaluation system in Africa."
         </blockquote>
         <p className={`${t.textMuted} leading-relaxed`}>
-          GDSP aims to be the leading procurement authority in Africa — ensuring consistent
+          WAPPA aims to be the leading procurement authority in Africa — ensuring consistent
           attainment of best value for money, supporting national development and fiscal policies,
           and driving trade competitiveness across the continent to achieve Vision 2025 economic
           growth as one of Africa's industrialised nations.

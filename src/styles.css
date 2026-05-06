@@ -4,7 +4,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* GDSP — Sovereign Dark design system */
+/* WAPPA — Sovereign Dark design system */
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -32,7 +32,7 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  /* GDSP semantic palette */
+  /* WAPPA semantic palette */
   --color-night: var(--night);
   --color-deep: var(--deep);
   --color-bone: var(--bone);

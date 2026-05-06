@@ -9,13 +9,13 @@ export const Route = createFileRoute("/supply")({
   component: SupplyPage,
   head: () => ({
     meta: [
-      { title: "Supply & Procurement — GDSP" },
+      { title: "Supply & Procurement — WAPPA" },
       {
         name: "description",
         content:
-          "GDSP procures goods and services on behalf of Ghana's public and private sectors. Contracts US$350K to US$375M. Active method: Sole Source Purchase (SSP).",
+          "WAPPA procures goods and services on behalf of Ghana's public and private sectors. Contracts US$350K to US$375M. Active method: Sole Source Purchase (SSP).",
       },
-      { property: "og:title", content: "Supply & Procurement — GDSP" },
+      { property: "og:title", content: "Supply & Procurement — WAPPA" },
       {
         property: "og:description",
         content:
@@ -62,12 +62,12 @@ const STEPS = [
   {
     c: "A",
     t: "Submit Your Quotation Invoice",
-    d: "As a supplier, you may have received an email from our accredited agent or directly from GDSP, containing the product names, quantity and specifications. Prepare and submit your offer or quotation invoice to GDSP's email addresses.",
+    d: "As a supplier, you may receive an official request directly from WAPPA containing product names, quantities and specifications. Prepare and submit your quotation invoice through WAPPA's official communication channels.",
   },
   {
     c: "B",
     t: "Offer Pre-Evaluation Process (OPEP)",
-    d: "GDSP's Evaluation Team will carry out an Offer Pre-Evaluation Process (OPEP). If the offer meets criteria, the team will issue an Acknowledgment Letter, Customer Reference and File Numbers, along with Supply Validation Forms.",
+    d: "WAPPA's Evaluation Team will carry out an Offer Pre-Evaluation Process (OPEP). If the offer meets criteria, the team will issue an Acknowledgment Letter, Customer Reference and File Numbers, along with Supply Validation Forms.",
   },
   {
     c: "C",
@@ -77,12 +77,12 @@ const STEPS = [
   {
     c: "D",
     t: "Supply Approval — Official Confirmation Letter",
-    d: "If your invoice receives general acceptance, FASE members issue an Official Confirmation Supply Approval Letter, followed by a personal telephone call from Dr. Kennedy Ofori, Projects Director — GDSP.",
+    d: "If your invoice receives general acceptance, FASE members issue an Official Confirmation Supply Approval Letter, followed by a direct call from Dr. Ama Kwame Boateng, Projects Director - WAPPA.",
   },
   {
     c: "E",
-    t: "Contact Your Local Agent",
-    d: "The approved supplier is expected to contact the local agent by providing the Registration/Validation Cost as stated on the Validation Forms, along with one of their company certificates and quotation invoice.",
+    t: "Complete Supplier Compliance",
+    d: "The approved supplier is expected to complete supplier compliance by submitting the validation cost, one company certificate and the final quotation invoice as stated in the Validation Forms.",
   },
   {
     c: "F",
@@ -141,7 +141,7 @@ function SupplyPage() {
             Supply & <em className="text-gold not-italic">procurement.</em>
           </>
         }
-        intro="GDSP procures goods and services on behalf of Ghana's public and private sectors — using transparent, accountable procurement methods aligned with international best practice."
+        intro="WAPPA procures goods and services on behalf of Ghana's public and private sectors — using transparent, accountable procurement methods aligned with international best practice."
       />
 
       <section className="gdsp-bright-band border-b border-night/10">
@@ -197,17 +197,17 @@ function AboutBlock() {
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
       <div className="lg:col-span-5">
         <SectionHeading eyebrow="About Our Supply">
-          How GDSP procures on <em className={`${t.accent} not-italic`}>your behalf.</em>
+          How WAPPA procures on <em className={`${t.accent} not-italic`}>your behalf.</em>
         </SectionHeading>
       </div>
       <div className={`lg:col-span-7 space-y-5 text-lg ${t.textMuted} leading-relaxed`}>
         <p>
-          Ghana Development Supply Projects procures products and services on behalf of both private
-          and public sector organisations. All contracts are valued between $350,000 and
-          $375,000,000 USD and are financed in whole or in part with public and private funds.
+          West Africa's Premier Procurement Authority procures products and services on behalf of
+          both private and public sector organisations. All contracts are valued between $350,000
+          and $375,000,000 USD and are financed in whole or in part with public and private funds.
         </p>
         <p>
-          GDSP has been assigned responsibility to procure products from verified suppliers and
+          WAPPA has been assigned responsibility to procure products from verified suppliers and
           companies for the use of Ghana's healthcare, construction, agricultural, industrial and
           consumer sectors — ensuring value for money through a rigorous evaluation process.
         </p>
@@ -229,7 +229,7 @@ function MethodsBlock() {
         Three accepted <em className={`${t.accent} not-italic`}>supply methods.</em>
       </SectionHeading>
       <p className={`mt-4 ${t.textMuted} max-w-3xl mb-16 leading-relaxed`}>
-        GDSP accepts quotation invoices through any of the following three procurement frameworks.
+        WAPPA accepts quotation invoices through any of the following three procurement frameworks.
         The active method for current supply orders is{" "}
         <span className={t.accent}>SSP — Sole Source Purchase</span>.
       </p>
@@ -273,7 +273,7 @@ function SectorsBlock() {
         Products procured across <em className={`${t.accent} not-italic`}>12 sectors.</em>
       </SectionHeading>
       <p className={`mt-6 ${t.textMuted} max-w-3xl mb-16 leading-relaxed`}>
-        GDSP manages supply contracts across 12 sectors — from healthcare and construction to
+        WAPPA manages supply contracts across 12 sectors — from healthcare and construction to
         agricultural inputs and consumer goods.
       </p>
       <div
@@ -306,7 +306,7 @@ function PartnersBlock() {
           </SectionHeading>
         </div>
         <p className={`lg:col-span-5 ${t.textMuted} leading-relaxed`}>
-          GDSP's supply programmes are supported by a network of international donors, development
+          WAPPA's supply programmes are supported by a network of international donors, development
           finance institutions and bilateral partners.
         </p>
       </div>
@@ -347,7 +347,7 @@ function StepsBlock() {
         Supply procedures using <em className={`${t.accent} not-italic`}>SSP method.</em>
       </SectionHeading>
       <p className={`mt-6 ${t.textMuted} max-w-3xl mb-16 leading-relaxed`}>
-        In accordance with our administrative procedures, GDSP is currently using Sole Source
+        In accordance with our administrative procedures, WAPPA is currently using Sole Source
         Purchase (SSP). Follow these steps to submit your quotation invoice and complete the supply
         validation process.
       </p>
@@ -422,15 +422,15 @@ function CTABlock() {
         Ready to submit your <em className={`${t.accent} not-italic`}>quotation?</em>
       </h2>
       <p className={`${t.textMuted} max-w-2xl mx-auto mb-10 leading-relaxed`}>
-        Contact GDSP or your accredited agent to begin the supply submission process. Our evaluation
-        team is ready to assess your quotation invoice.
+        Contact WAPPA to begin the supply submission process. Our evaluation team is ready to assess
+        your quotation invoice.
       </p>
       <div className="flex flex-wrap justify-center gap-3">
         <Link
           to="/contact"
           className={`${t.btnPrimary} px-8 py-5 text-[11px] font-bold uppercase tracking-[0.2em] transition-colors w-full sm:w-auto text-center`}
         >
-          Contact GDSP
+          Contact WAPPA
         </Link>
         <Link
           to="/members"

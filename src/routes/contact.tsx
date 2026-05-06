@@ -4,22 +4,23 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { TopBar } from "@/components/site/TopBar";
 import { PageHero } from "@/components/site/PageHero";
+import contactBuildingImg from "@/assets/wappa-contact-hq.png";
 import { Section, SectionFlow, SectionHeading, useToneTokens } from "@/components/site/Section";
 
 export const Route = createFileRoute("/contact")({
   component: ContactPage,
   head: () => ({
     meta: [
-      { title: "Contact GDSP — Ghana Development Supply Projects" },
+      { title: "Contact WAPPA - West Africa's Premier Procurement Authority" },
       {
         name: "description",
         content:
-          "Get in touch with GDSP. Head office in Sekondi-Takoradi, Ghana. Phone, email and enquiry form for suppliers, investors and partners.",
+          "Get in touch with WAPPA. Head office in Accra, Ghana. Phone, email and enquiry form for suppliers, investors and partners.",
       },
-      { property: "og:title", content: "Contact GDSP" },
+      { property: "og:title", content: "Contact WAPPA" },
       {
         property: "og:description",
-        content: "Suppliers, investors and partners — our team responds within 2 business days.",
+        content: "Suppliers, investors and partners - our team responds within 2 business days.",
       },
     ],
   }),
@@ -31,7 +32,7 @@ const ENQUIRY_TYPES = [
   "Healthcare Supply",
   "Infrastructure Project",
   "Agricultural Supply",
-  "Agent Accreditation",
+  "Procurement Compliance",
   "General Enquiry",
   "Other",
 ];
@@ -61,13 +62,12 @@ function ContactPage() {
         breadcrumb="Contact Us"
         title={
           <>
-            Contact <em className="text-gold not-italic">GDSP.</em>
+            Contact <em className="text-gold not-italic">WAPPA.</em>
           </>
         }
-        intro="Whether you are a supplier, investor, partner organisation or member of the public — we welcome your enquiry. Our team is ready to assist you."
+        intro="Whether you are a supplier, investor, partner organisation or member of the public - we welcome your enquiry. Our team is ready to assist you."
       />
 
-      {/* Contact info — bright white-gold strip */}
       <section className="gdsp-bright-band border-b border-night/10">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-night/15">
           <div className="p-6 sm:p-10">
@@ -76,13 +76,13 @@ function ContactPage() {
             </div>
             <h3 className="font-display text-2xl mb-3 text-night">Physical Address</h3>
             <address className="not-italic text-night/70 leading-relaxed text-sm">
-              F507/2 Nmetsobu Street
+              No. 12 Independence Avenue
               <br />
-              Near Simbins Furniture
+              Ridge District
               <br />
-              Sekondi, Takoradi
+              Accra
               <br />
-              W/R, Republic of Ghana
+              Greater Accra Region, Republic of Ghana
             </address>
           </div>
           <div className="p-6 sm:p-10">
@@ -95,10 +95,10 @@ function ContactPage() {
                   Phone
                 </div>
                 <a
-                  href="tel:+233561195994"
+                  href="tel:+233270955659"
                   className="font-display text-xl hover:text-clay text-night"
                 >
-                  +233 (0) 561 195 994
+                  +233 270955659
                 </a>
               </div>
               <div>
@@ -106,21 +106,21 @@ function ContactPage() {
                   Official Email
                 </div>
                 <a
-                  href="mailto:info@ghsupplyprojects.org"
+                  href="mailto:info@wappaghana.org"
                   className="text-night hover:text-clay break-all"
                 >
-                  info@ghsupplyprojects.org
+                  info@wappaghana.org
                 </a>
               </div>
               <div>
                 <div className="text-[10px] font-mono uppercase tracking-widest text-night/45 mb-1">
-                  Project Email
+                  Partnerships
                 </div>
                 <a
-                  href="mailto:ghdevelopmentsupplyproject@gmail.com"
+                  href="mailto:info@wappaghana.org"
                   className="text-night hover:text-clay break-all text-sm"
                 >
-                  ghdevelopmentsupplyproject@gmail.com
+                  info@wappaghana.org
                 </a>
               </div>
             </div>
@@ -131,12 +131,12 @@ function ContactPage() {
             </div>
             <ul className="space-y-3 text-sm text-night">
               <li className="flex justify-between border-b border-night/15 pb-3">
-                <span>Mon — Fri</span>
-                <span className="text-clay">8:00 AM — 5:00 PM</span>
+                <span>Mon - Fri</span>
+                <span className="text-clay">8:00 AM - 5:00 PM</span>
               </li>
               <li className="flex justify-between border-b border-night/15 pb-3">
                 <span>Saturday</span>
-                <span className="text-night/70">9:00 AM — 1:00 PM</span>
+                <span className="text-night/70">9:00 AM - 1:00 PM</span>
               </li>
               <li className="flex justify-between border-b border-night/15 pb-3">
                 <span>Sunday</span>
@@ -195,7 +195,7 @@ function FormBlock() {
             </div>
             <h3 className={`font-display text-3xl mb-3 ${t.text}`}>Message Sent Successfully</h3>
             <p className={`${t.textMuted} mb-8`}>
-              Thank you for reaching out to GDSP. A member of our team will review your enquiry and
+              Thank you for reaching out to WAPPA. A member of our team will review your enquiry and
               respond within 2 business days.
             </p>
             <button
@@ -276,7 +276,7 @@ function FormBlock() {
                 className={`mt-1 ${t.tone === "dark" ? "accent-gold" : "accent-clay"}`}
               />
               <span>
-                I agree that GDSP may contact me regarding my enquiry. I have read and accept the
+                I agree that WAPPA may contact me regarding my enquiry. I have read and accept the
                 Privacy Policy and Terms of Use.
               </span>
             </label>
@@ -299,28 +299,28 @@ function LocationBlock() {
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
       <div className="lg:col-span-5">
         <SectionHeading eyebrow="Our Location">
-          Find us in <em className={`${t.accent} not-italic`}>Takoradi.</em>
+          Find us in <em className={`${t.accent} not-italic`}>Accra.</em>
         </SectionHeading>
         <p className={`mt-6 ${t.textMuted} leading-relaxed mb-8`}>
-          We are located in Sekondi-Takoradi, Ghana's industrial capital and a key hub for West
-          African trade.
+          We are located in Ridge District, Accra - a key policy, trade and investment hub for Ghana
+          and the wider West African region.
         </p>
         <div className={`border ${t.border} p-6 ${t.cardBg} mb-6`}>
           <div className={`text-[10px] font-mono uppercase tracking-widest ${t.accent} mb-3`}>
-            GDSP Head Office
+            WAPPA Head Office
           </div>
           <address className={`not-italic ${t.textMuted} leading-relaxed text-sm`}>
-            Ghana Development Supply Projects
+            West Africa&apos;s Premier Procurement Authority
             <br />
-            F507/2 Nmetsobu Street
+            No. 12 Independence Avenue
             <br />
-            Near Simbins Furniture
+            Ridge District
             <br />
-            Sekondi, Takoradi · W/R, Ghana
+            Accra - Greater Accra Region, Ghana
           </address>
         </div>
         <a
-          href="https://maps.google.com/?q=Sekondi-Takoradi,Ghana"
+          href="https://maps.google.com/?q=No.+12+Independence+Avenue,+Ridge,+Accra,+Ghana"
           target="_blank"
           rel="noopener noreferrer"
           className={`inline-flex items-center justify-center gap-3 ${t.btnPrimary} px-7 py-4 text-[11px] font-bold uppercase tracking-[0.2em] transition-colors w-full sm:w-auto`}
@@ -330,33 +330,30 @@ function LocationBlock() {
       </div>
       <div className="lg:col-span-7">
         <div className={`aspect-[4/3] relative border ${t.border} ${t.cardBg} overflow-hidden`}>
-          <div
-            className={`absolute inset-0 ${t.tone === "dark" ? "gdsp-grid" : "gdsp-light-grid"} opacity-50`}
+          <img
+            src={contactBuildingImg}
+            alt="WAPPA headquarters building in Accra, Ghana"
+            className="absolute inset-0 w-full h-full object-cover object-center"
+            loading="lazy"
           />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center">
-              <div
-                className={`size-20 mx-auto border-2 ${t.accentBorder} rounded-full flex items-center justify-center mb-4`}
-              >
-                <div
-                  className={`size-3 ${t.tone === "dark" ? "bg-gold" : "bg-clay"} rounded-full animate-pulse`}
-                />
-              </div>
-              <div className={`font-display text-3xl ${t.accent} mb-2`}>Sekondi-Takoradi</div>
-              <div className={`text-[10px] font-mono uppercase tracking-[0.3em] ${t.textMuted}`}>
-                Western Region · Republic of Ghana
+          <div className="absolute inset-0 bg-gradient-to-t from-night/55 via-transparent to-transparent" />
+          <div
+            className={`absolute top-4 left-4 text-[10px] font-mono uppercase tracking-widest ${t.accent} bg-night/60 px-3 py-1 border ${t.accentBorder}`}
+          >
+            Headquarters
+          </div>
+          <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-4">
+            <div className="bg-night/65 border border-bone/20 px-4 py-3 backdrop-blur-sm">
+              <div className={`font-display text-2xl ${t.accent} leading-none mb-1`}>Accra</div>
+              <div className={`text-[10px] font-mono uppercase tracking-[0.2em] ${t.textMuted}`}>
+                No. 12 Independence Avenue - Ridge District
               </div>
             </div>
-          </div>
-          <div
-            className={`absolute top-4 left-4 text-[10px] font-mono uppercase tracking-widest ${t.accent} opacity-60`}
-          >
-            04°53′N · 01°45′W
-          </div>
-          <div
-            className={`absolute bottom-4 right-4 text-[10px] font-mono uppercase tracking-widest ${t.accent} opacity-60`}
-          >
-            GDSP HQ
+            <div
+              className={`text-[10px] font-mono uppercase tracking-widest ${t.accent} bg-night/60 px-3 py-2 border ${t.accentBorder}`}
+            >
+              WAPPA HQ
+            </div>
           </div>
         </div>
       </div>

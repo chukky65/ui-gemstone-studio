@@ -1,5 +1,6 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { useState } from "react";
+import { BrandMark } from "@/components/site/BrandMark";
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -16,13 +17,11 @@ export function Header() {
   return (
     <nav className="relative px-4 sm:px-6 lg:px-10 h-16 sm:h-20 flex justify-between items-center border-b border-line bg-night/80 backdrop-blur-md sticky top-0 z-40">
       <Link to="/" className="flex items-center gap-2 sm:gap-4 group min-w-0">
-        <div className="size-8 sm:size-10 border border-gold/40 rotate-45 flex items-center justify-center transition-transform group-hover:scale-110 shrink-0">
-          <div className="size-2.5 sm:size-3 bg-gold -rotate-45" />
-        </div>
+        <BrandMark size="sm" className="transition-transform group-hover:scale-110" />
         <div className="min-w-0">
-          <div className="font-display text-xl sm:text-2xl leading-none tracking-tight">GDSP</div>
+          <div className="font-display text-xl sm:text-2xl leading-none tracking-tight">WAPPA</div>
           <div className="hidden sm:block text-[8px] md:text-[9px] font-mono uppercase tracking-[0.18em] md:tracking-[0.3em] text-bone/40 mt-1 truncate">
-            Ghana · West Africa Authority
+            West Africa Procurement Authority
           </div>
         </div>
       </Link>
@@ -51,7 +50,7 @@ export function Header() {
           to="/contact"
           className="px-5 py-2 border border-gold/40 text-gold text-[11px] uppercase tracking-widest font-mono hover:bg-gold hover:text-night transition-colors"
         >
-          Agent Portal
+          Partner Portal
         </Link>
       </div>
 

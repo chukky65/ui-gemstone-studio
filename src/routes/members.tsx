@@ -9,17 +9,17 @@ export const Route = createFileRoute("/members")({
   component: MembersPage,
   head: () => ({
     meta: [
-      { title: "Our Members — GDSP Management Board" },
+      { title: "Our Members - WAPPA Management Board" },
       {
         name: "description",
         content:
-          "Meet the GDSP management board: Project Director, Assistant Director, six Evaluation Members and Administrative Staff guiding procurement for Ghana and West Africa.",
+          "Meet the WAPPA management board: Projects Director, Assistant Director and evaluation specialists guiding procurement delivery for Ghana and West Africa.",
       },
-      { property: "og:title", content: "Our Members — GDSP" },
+      { property: "og:title", content: "Our Members - WAPPA" },
       {
         property: "og:description",
         content:
-          "A board of seasoned professionals in procurement, law, finance and development guiding GDSP.",
+          "A board of experienced professionals in procurement, governance, finance, compliance and development.",
       },
     ],
   }),
@@ -27,44 +27,44 @@ export const Route = createFileRoute("/members")({
 
 const LEADERS = [
   {
-    i: "KO",
+    i: "AB",
     role: "Projects Director",
-    name: "Dr. Kennedy Ofori",
-    title: "Ph.D · DFID UK Senior Procurement Specialist",
-    creds: ["Ph.D", "MBA", "BSc", "MCIPS"],
-    bio: "Dr. Kennedy Ofori is a DFID UK Senior Procurement Specialist currently on secondment to GDSP. He held various procurement positions in the National Health Service from 1990 to 1999, before joining the Department for International Development in 1999 as a Procurement Adviser working across multiple offices in Africa. He has contributed significantly to development in Ghana, Sierra Leone, South Africa, Tanzania, Zambia, Uganda, Zimbabwe, Vietnam and Pakistan.",
+    name: "Dr. Ama Kwame Boateng",
+    title: "PhD · Regional Procurement & Infrastructure Specialist",
+    creds: ["PhD", "MSc", "BEng", "MCIPS"],
+    bio: "Dr. Ama Kwame Boateng leads strategic sourcing and project governance at WAPPA. She previously directed multi-country infrastructure procurement programmes across transport, health systems and industrial parks, and has advised sovereign institutions on transparent contract delivery and supplier risk controls.",
     facts: [
-      { l: "NHS Experience", v: "1990 — 1999" },
-      { l: "DFID Joined", v: "1999" },
-      { l: "Countries Served", v: "9+ Nations" },
-      { l: "Specialisation", v: "Strategic Procurement" },
+      { l: "Procurement Experience", v: "18+ Years" },
+      { l: "Regional Programmes Led", v: "12" },
+      { l: "Countries Served", v: "8 Nations" },
+      { l: "Specialisation", v: "Strategic Sourcing" },
     ],
   },
   {
-    i: "SA",
+    i: "KM",
     role: "Assistant Director",
-    name: "Mr. Sam Adams",
-    title: "Lawyer · CPA · Chartered Accountant · Former MP",
-    creds: ["BBA", "CPA", "CA", "LLB"],
-    bio: "Mr. Sam Adams is a Lawyer by profession. He holds a Bachelor of Business Administration (Accounting Major) from the Wharton Business School, University of Pennsylvania (1977), is a member of the AICPA (1979), the Institute of Chartered Accountants Ghana (1993) and the Ghana Institute of Taxation (1986). He served as Member of Parliament for Upper West Akin Constituency for four years and as Executive Secretary to the Revenue Agencies Governing Board.",
+    name: "Mr. Kojo Mensimah",
+    title: "LLM · CPA · Governance & Compliance Lead",
+    creds: ["LLM", "MBA", "CPA", "CA"],
+    bio: "Mr. Kojo Mensimah oversees governance assurance, financial controls and contract compliance. He has supported public institutions with policy reform, audit readiness and procurement integrity frameworks, improving process transparency and supplier accountability.",
     facts: [
-      { l: "Wharton School", v: "BBA 1977" },
-      { l: "CPA", v: "AICPA 1979" },
-      { l: "Parliament", v: "4 Years MP" },
-      { l: "IMF / World Bank", v: "Oversight Cmte" },
+      { l: "Compliance Audits", v: "150+" },
+      { l: "Policy Reform Projects", v: "20+" },
+      { l: "Financial Controls", v: "Public Sector" },
+      { l: "Specialisation", v: "Contract Governance" },
     ],
   },
   {
-    i: "SO",
-    role: "Administrative Staff",
-    name: "Miss. Sophia Osei",
-    title: "MSc · MA · Aid & Debt Management Specialist",
-    creds: ["MSc", "MA", "BA (Hons)"],
-    bio: "Miss Sophia Osei holds a Master's degree (MSc) in Secretary Management from the School of Oriental and African Studies, University of London, and a Master's degree (MA) in Economic Policy Management from the University of Ghana. She has specialised in aid and debt management techniques that enhance aid effectiveness, and has consulted for several organisations and countries including the Commonwealth Secretariat.",
+    i: "EN",
+    role: "Administrative Services Lead",
+    name: "Ms. Efua Nartey",
+    title: "MSc · Operations & Programme Administration",
+    creds: ["MSc", "MA", "BSc"],
+    bio: "Ms. Efua Nartey manages board operations, programme administration and executive coordination. Her work focuses on delivery planning, documentation quality and cross-team execution standards for high-value procurement programmes.",
     facts: [
-      { l: "SOAS London", v: "MSc Sec. Mgmt" },
-      { l: "Univ. of Ghana", v: "MA Econ. Policy" },
-      { l: "Specialisation", v: "Aid & Debt Mgmt" },
+      { l: "Operations Leadership", v: "10+ Years" },
+      { l: "Programmes Coordinated", v: "80+" },
+      { l: "Core Area", v: "Delivery Operations" },
       { l: "Languages", v: "English & French" },
     ],
   },
@@ -72,46 +72,46 @@ const LEADERS = [
 
 const EVALUATION = [
   {
-    i: "OA",
-    n: "Mrs. Olivia Amankwah",
-    r: "Evaluation Member",
-    d: "Has worked in both the USA and Ghana, bringing several years of cross-border experience. One of her prime responsibilities is the supervision of Value for Money Audits on single-sourced contracts under Ghana's Procurement laws.",
-    tags: ["Value for Money Audits", "Procurement Law", "USA & Ghana"],
+    i: "AS",
+    n: "Mrs. Adwoa Sarpong",
+    r: "Evaluation Lead",
+    d: "Leads technical and commercial evaluation workflows, with focus on bid quality scoring, supplier due diligence and value-for-money benchmarking.",
+    tags: ["Bid Scoring", "Due Diligence", "Value for Money"],
   },
   {
-    i: "FK",
-    n: "Dr. Frimpong Kobby",
-    r: "Evaluation Systems Specialist",
-    d: "Specialist in Evaluation Systems for GDSP. Held numerous positions in procurement service from 1993 to 2000. Holds a BSc in Development Planning and an MBA specialising in Strategic Planning and Procurement.",
-    tags: ["Evaluation Systems", "Strategic Planning", "MCIPS"],
+    i: "NB",
+    n: "Mr. Nana Yaw Bediako",
+    r: "Cost & Value Analyst",
+    d: "Provides cost intelligence and lifecycle pricing analysis for strategic procurement categories, strengthening budget discipline and contract predictability.",
+    tags: ["Cost Analysis", "Lifecycle Pricing", "Budget Control"],
   },
   {
-    i: "GA",
-    n: "Gabriel Atta",
-    r: "Evaluation Member",
-    d: "Serves as an evaluation member on the GDSP board, contributing expertise to the assessment and verification of procurement processes in line with Ghana's public procurement laws.",
-    tags: ["Procurement Evaluation", "Contract Assessment"],
+    i: "KT",
+    n: "Engr. Kwesi Tetteh",
+    r: "Technical Evaluation Member",
+    d: "Reviews technical specifications, implementation readiness and engineering compliance across infrastructure and industrial equipment contracts.",
+    tags: ["Technical Specs", "Engineering Compliance", "Project Readiness"],
   },
   {
-    i: "JM",
-    n: "Mr. Joe Mensah",
-    r: "Evaluation Member",
-    d: "Brings sector-level expertise to GDSP's evaluation committee, participating in the fair and transparent assessment of suppliers, contracts and development programmes.",
-    tags: ["Supplier Assessment", "Programme Review"],
+    i: "RO",
+    n: "Ms. Regina Owusu",
+    r: "Contract Compliance Member",
+    d: "Oversees regulatory alignment, vendor documentation integrity and post-award compliance checkpoints to sustain contract performance standards.",
+    tags: ["Regulatory Compliance", "Vendor Documentation", "Post-Award Reviews"],
   },
   {
-    i: "MA",
-    n: "Dr. Michael Atanda",
-    r: "Evaluation Member",
-    d: "Brings academic and professional credentials to the oversight of procurement procedures. His role encompasses the review and validation of project eligibility, supplier standards and contract compliance.",
-    tags: ["Contract Compliance", "Supplier Standards"],
+    i: "LA",
+    n: "Dr. Linda Aboagye",
+    r: "Risk & Governance Reviewer",
+    d: "Specialises in procurement risk modelling, ethics controls and governance safeguards for high-impact public procurement programmes.",
+    tags: ["Risk Modelling", "Ethics Controls", "Governance Safeguards"],
   },
   {
-    i: "JA",
-    n: "Rev. Joseph Adechem (Rtd)",
-    r: "Evaluation Member (Rtd)",
-    d: "Retired member of GDSP's evaluation committee, whose experience in governance, ethics and institutional oversight continues to inform the commission's standards of integrity and impartiality.",
-    tags: ["Governance", "Institutional Ethics", "Retired"],
+    i: "PA",
+    n: "Rev. Peter A. Asante",
+    r: "Independent Advisory Member",
+    d: "Supports committee oversight with independent review on institutional accountability, fairness and dispute-sensitive procurement governance.",
+    tags: ["Independent Review", "Institutional Accountability", "Fairness"],
   },
 ];
 
@@ -129,16 +129,16 @@ function MembersPage() {
             Our <em className="text-gold not-italic">members.</em>
           </>
         }
-        intro="Meet the dedicated professionals guiding GDSP — a management board of experienced specialists in procurement, law, finance, evaluation and development."
+        intro="Meet the dedicated professionals guiding WAPPA - a management board of experienced specialists in procurement, governance, finance, evaluation and development."
       />
 
       <section className="gdsp-bright-band border-b border-night/10">
         <div className="max-w-[1400px] mx-auto grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-night/15">
           {[
-            { v: "1", l: "Project Director" },
+            { v: "1", l: "Projects Director" },
             { v: "1", l: "Assistant Director" },
-            { v: "6", l: "Evaluation Members" },
-            { v: "—", l: "Administrative Staff" },
+            { v: "6", l: "Evaluation Specialists" },
+            { v: "3", l: "Board Leadership Roles" },
           ].map((s) => (
             <div key={s.l} className="p-6 sm:p-8 lg:p-10 hover:bg-white/55 transition-colors">
               <div className="font-display text-4xl sm:text-5xl text-clay tabular-nums mb-3">
@@ -177,9 +177,9 @@ function LeadersBlock() {
         Management <em className={`${t.accent} not-italic`}>board.</em>
       </SectionHeading>
       <p className={`mt-6 ${t.textMuted} max-w-3xl mb-16 leading-relaxed`}>
-        Our board brings together seasoned professionals from across the public and private sectors
-        — united by a shared commitment to transparent, accountable and effective procurement for
-        Ghana and West Africa.
+        Our board brings together experienced professionals from public and private sector
+        institutions - united by a shared commitment to transparent, accountable and effective
+        procurement for Ghana and West Africa.
       </p>
       <div className={`space-y-px ${t.divider} border ${t.border}`}>
         {LEADERS.map((l) => (
@@ -241,9 +241,9 @@ function EvaluationBlock() {
         Evaluation team <em className={`${t.accent} not-italic`}>members.</em>
       </SectionHeading>
       <p className={`mt-6 ${t.textMuted} max-w-3xl mb-16 leading-relaxed`}>
-        GDSP's evaluation team brings together experienced specialists in procurement, finance, law
-        and development — responsible for the fair, transparent and expert assessment of all supply
-        contracts and programmes.
+        WAPPA&apos;s evaluation team brings together specialists in procurement, engineering,
+        finance, risk and governance - responsible for fair, transparent and expert assessment of
+        supply contracts and programmes.
       </p>
       <div className={`grid grid-cols-1 md:grid-cols-2 gap-px ${t.divider} border ${t.border}`}>
         {EVALUATION.map((e) => (
@@ -284,7 +284,7 @@ function CTABlock() {
   return (
     <>
       <div className={`text-[10px] font-mono uppercase tracking-[0.3em] ${t.accent} mb-6`}>
-        Work With GDSP
+        Work With WAPPA
       </div>
       <h2
         className={`font-display text-4xl sm:text-5xl md:text-7xl mb-8 max-w-4xl mx-auto leading-[0.95] ${t.text}`}
@@ -293,7 +293,7 @@ function CTABlock() {
       </h2>
       <p className={`${t.textMuted} max-w-2xl mx-auto mb-10 leading-relaxed`}>
         Our board and evaluation team are ready to assess your proposal. Whether you are a supplier,
-        investor or development partner, GDSP provides a fair and structured pathway to engagement.
+        investor or development partner, WAPPA provides a fair and structured pathway to engagement.
       </p>
       <div className="flex flex-wrap justify-center gap-3">
         <Link
