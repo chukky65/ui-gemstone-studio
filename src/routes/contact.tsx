@@ -53,7 +53,7 @@ const COUNTRIES = [
 
 function ContactPage() {
   return (
-    <div className="min-h-dvh bg-night text-bone">
+    <div className="min-h-dvh bg-[#f7f5ef] text-[#10243d]">
       <TopBar />
       <Header />
 
@@ -62,7 +62,7 @@ function ContactPage() {
         breadcrumb="Contact Us"
         title={
           <>
-            Contact <em className="text-gold not-italic">WAPPA.</em>
+            Contact <em className="text-[#8b6c2d] not-italic">WAPPA.</em>
           </>
         }
         intro="Whether you are a supplier, investor, partner organisation or member of the public - we welcome your enquiry. Our team is ready to assist you."
@@ -284,7 +284,7 @@ function FormBlock() {
               type="submit"
               className={`w-full ${t.btnPrimary} px-7 py-5 text-[11px] font-bold uppercase tracking-[0.2em] transition-colors`}
             >
-              Send Enquiry →
+              Send Enquiry -&gt;
             </button>
           </form>
         )}
@@ -325,7 +325,7 @@ function LocationBlock() {
           rel="noopener noreferrer"
           className={`inline-flex items-center justify-center gap-3 ${t.btnPrimary} px-7 py-4 text-[11px] font-bold uppercase tracking-[0.2em] transition-colors w-full sm:w-auto`}
         >
-          Get Directions →
+          Get Directions -&gt;
         </a>
       </div>
       <div className="lg:col-span-7">
@@ -336,22 +336,18 @@ function LocationBlock() {
             className="absolute inset-0 w-full h-full object-cover object-center"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-night/55 via-transparent to-transparent" />
-          <div
-            className={`absolute top-4 left-4 text-[10px] font-mono uppercase tracking-widest ${t.accent} bg-night/60 px-3 py-1 border ${t.accentBorder}`}
-          >
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0f243d]/55 via-transparent to-transparent" />
+          <div className="absolute top-4 left-4 text-[10px] font-mono uppercase tracking-widest text-[#7b6232] bg-white/82 px-3 py-1 border border-[#ccb98e]">
             Headquarters
           </div>
           <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-4">
-            <div className="bg-night/65 border border-bone/20 px-4 py-3 backdrop-blur-sm">
-              <div className={`font-display text-2xl ${t.accent} leading-none mb-1`}>Accra</div>
-              <div className={`text-[10px] font-mono uppercase tracking-[0.2em] ${t.textMuted}`}>
+            <div className="bg-[#10243d]/74 border border-white/20 px-4 py-3 backdrop-blur-sm">
+              <div className="font-display text-2xl text-[#f2d89d] leading-none mb-1">Accra</div>
+              <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-white/78">
                 No. 12 Independence Avenue - Ridge District
               </div>
             </div>
-            <div
-              className={`text-[10px] font-mono uppercase tracking-widest ${t.accent} bg-night/60 px-3 py-2 border ${t.accentBorder}`}
-            >
+            <div className="text-[10px] font-mono uppercase tracking-widest text-[#7b6232] bg-white/82 px-3 py-2 border border-[#ccb98e]">
               WAPPA HQ
             </div>
           </div>

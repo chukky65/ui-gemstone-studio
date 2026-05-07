@@ -43,10 +43,10 @@ const LEADERS = [
   {
     i: "KM",
     role: "Assistant Director",
-    name: "Mr. Kojo Mensimah",
+    name: "Mr. Kojo Mensah",
     title: "LLM - CPA - Governance & Compliance Lead",
     creds: ["LLM", "MBA", "CPA", "CA"],
-    bio: "Mr. Kojo Mensimah provides executive oversight on governance assurance, financial controls and contract compliance across WAPPA programmes. He has led policy reform and audit-readiness engagements for public institutions, helping teams build stronger accountability systems, evidence-based approval workflows and transparent expenditure controls. His work includes designing procurement integrity frameworks, supervising compliance reviews and strengthening contract administration practices to reduce disputes and performance slippage. He also supports board-level reporting by translating complex risk and compliance findings into clear operational recommendations for faster decision-making.",
+    bio: "Mr. Kojo Mensah provides executive oversight on governance assurance, financial controls and contract compliance across WAPPA programmes. He has led policy reform and audit-readiness engagements for public institutions, helping teams build stronger accountability systems, evidence-based approval workflows and transparent expenditure controls. His work includes designing procurement integrity frameworks, supervising compliance reviews and strengthening contract administration practices to reduce disputes and performance slippage. He also supports board-level reporting by translating complex risk and compliance findings into clear operational recommendations for faster decision-making.",
     facts: [
       { l: "Compliance Audits", v: "150+" },
       { l: "Policy Reform Projects", v: "20+" },
@@ -117,7 +117,7 @@ const EVALUATION = [
 
 function MembersPage() {
   return (
-    <div className="min-h-dvh bg-night text-bone">
+    <div className="min-h-dvh bg-[#f7f5ef] text-[#10243d]">
       <TopBar />
       <Header />
 
@@ -126,7 +126,7 @@ function MembersPage() {
         breadcrumb="Our Members"
         title={
           <>
-            Our <em className="text-gold not-italic">members.</em>
+            Our <em className="text-[#8b6c2d] not-italic">members.</em>
           </>
         }
         intro="Meet the dedicated professionals guiding WAPPA - a management board of experienced specialists in procurement, governance, finance, evaluation and development."

@@ -129,7 +129,7 @@ const TERMS = [
 
 function SupplyPage() {
   return (
-    <div className="min-h-dvh bg-night text-bone">
+    <div className="min-h-dvh bg-[#f7f5ef] text-[#10243d]">
       <TopBar />
       <Header />
 
@@ -138,7 +138,7 @@ function SupplyPage() {
         breadcrumb="Supply"
         title={
           <>
-            Supply & <em className="text-gold not-italic">procurement.</em>
+            Supply & <em className="text-[#8b6c2d] not-italic">procurement.</em>
           </>
         }
         intro="WAPPA procures goods and services on behalf of Ghana's public and private sectors — using transparent, accountable procurement methods aligned with international best practice."
@@ -248,7 +248,7 @@ function MethodsBlock() {
                   Method {m.c}
                 </span>
                 {m.active && (
-                  <span className="px-2 py-0.5 bg-night text-gold text-[9px] font-mono uppercase tracking-widest">
+                  <span className="px-2 py-0.5 bg-[#10243d] text-white text-[9px] font-mono uppercase tracking-widest">
                     Active
                   </span>
                 )}
@@ -282,7 +282,11 @@ function SectorsBlock() {
         {SUPPLY_SECTORS.map((s) => (
           <div key={s.n} className={`${t.cardBg} p-8 group ${t.cardBgHover} transition-colors`}>
             <div
-              className={`font-display text-5xl ${t.tone === "dark" ? "text-gold/30 group-hover:text-gold" : "text-clay/40 group-hover:text-clay"} transition-colors mb-3`}
+              className={`font-display text-5xl ${
+                t.tone === "dark"
+                  ? "text-[#2f5f8a]/40 group-hover:text-[#2f5f8a]"
+                  : "text-[#8b6c2d]/45 group-hover:text-[#8b6c2d]"
+              } transition-colors mb-3`}
             >
               {s.n}
             </div>

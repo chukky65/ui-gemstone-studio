@@ -146,7 +146,7 @@ const FUNCTIONS = [
 
 function ProfilePage() {
   return (
-    <div className="min-h-dvh bg-night text-bone">
+    <div className="min-h-dvh bg-[#f7f5ef] text-[#10243d]">
       <TopBar />
       <Header />
 
@@ -155,7 +155,7 @@ function ProfilePage() {
         breadcrumb="Our Profile"
         title={
           <>
-            Our <em className="text-gold not-italic">profile.</em>
+            Our <em className="text-[#8b6c2d] not-italic">profile.</em>
           </>
         }
         intro="West Africa's Premier Procurement Authority was established to provide a legal, institutional and professional framework for public procurement — serving the people of Ghana and the West African sub-region with accountability and integrity."
@@ -247,8 +247,8 @@ function AboutBlock() {
               key={s}
               className={`px-4 py-2 border ${t.border} text-sm ${t.text} transition-colors ${
                 t.tone === "dark"
-                  ? "hover:border-gold hover:text-gold"
-                  : "hover:border-clay hover:text-clay"
+                  ? "hover:border-[#2f5f8a] hover:text-[#2f5f8a]"
+                  : "hover:border-[#8b6c2d] hover:text-[#8b6c2d]"
               }`}
             >
               {s}
@@ -311,7 +311,11 @@ function MissionBlock() {
         {VALUES.map((v, i) => (
           <div key={v.t} className={`${t.cardBg} p-8 group ${t.cardBgHover} transition-colors`}>
             <div
-              className={`font-display text-4xl ${t.tone === "dark" ? "text-gold/30 group-hover:text-gold" : "text-clay/40 group-hover:text-clay"} transition-colors mb-4`}
+              className={`font-display text-4xl ${
+                t.tone === "dark"
+                  ? "text-[#2f5f8a]/40 group-hover:text-[#2f5f8a]"
+                  : "text-[#8b6c2d]/45 group-hover:text-[#8b6c2d]"
+              } transition-colors mb-4`}
             >
               {String(i + 1).padStart(2, "0")}
             </div>

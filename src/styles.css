@@ -331,3 +331,167 @@
   );
   backdrop-filter: blur(10px);
 }
+
+/* Light hero and bright surface motion */
+@keyframes wappa-light-aurora-drift {
+  0% {
+    transform: translate3d(-2%, -1%, 0) scale(1.02);
+  }
+  50% {
+    transform: translate3d(2%, 1.2%, 0) scale(1.05);
+  }
+  100% {
+    transform: translate3d(-1.5%, -1%, 0) scale(1.03);
+  }
+}
+
+@keyframes wappa-light-orb-float {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-18px) translateX(8px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+
+@keyframes wappa-light-shimmer {
+  0% {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.3;
+  }
+  65% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+}
+
+@keyframes wappa-card-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.wappa-hero-light-aurora {
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 58% 45% at 14% 18%, oklch(0.985 0.01 95 / 0.64), transparent 68%),
+    radial-gradient(ellipse 52% 42% at 84% 20%, oklch(0.8 0.13 75 / 0.32), transparent 66%),
+    radial-gradient(ellipse 64% 52% at 72% 84%, oklch(0.82 0.08 220 / 0.24), transparent 72%);
+  animation: wappa-light-aurora-drift 18s ease-in-out infinite;
+}
+
+.wappa-hero-light-orb {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  filter: blur(2px);
+  animation: wappa-light-orb-float 11s ease-in-out infinite;
+}
+
+.wappa-hero-light-orb-a {
+  width: 16rem;
+  height: 16rem;
+  left: -3.5rem;
+  top: 24%;
+  background: radial-gradient(circle, oklch(0.94 0.03 90 / 0.48), transparent 68%);
+}
+
+.wappa-hero-light-orb-b {
+  width: 20rem;
+  height: 20rem;
+  right: -4rem;
+  top: 8%;
+  animation-delay: 2s;
+  background: radial-gradient(circle, oklch(0.78 0.13 75 / 0.38), transparent 72%);
+}
+
+.wappa-hero-light-orb-c {
+  width: 14rem;
+  height: 14rem;
+  right: 28%;
+  bottom: 10%;
+  animation-delay: 3.4s;
+  background: radial-gradient(circle, oklch(0.76 0.1 220 / 0.28), transparent 72%);
+}
+
+.wappa-hero-light-shimmer {
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.wappa-hero-light-shimmer::before {
+  content: "";
+  position: absolute;
+  inset: -8% auto -8% 0;
+  width: 34%;
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    oklch(0.98 0.01 95 / 0.25) 44%,
+    oklch(0.8 0.12 75 / 0.16) 58%,
+    transparent 100%
+  );
+  animation: wappa-light-shimmer 10s ease-in-out infinite;
+}
+
+.wappa-light-marquee {
+  animation: gdsp-marquee 58s linear infinite;
+}
+
+.wappa-card-lift {
+  animation: wappa-card-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+/* Shared bright surfaces for inner pages */
+.wappa-band-ivory {
+  background: linear-gradient(
+    145deg,
+    oklch(0.995 0.006 96) 0%,
+    oklch(0.972 0.014 88) 54%,
+    oklch(0.94 0.038 84) 100%
+  );
+}
+
+.wappa-band-mist {
+  background: linear-gradient(
+    145deg,
+    oklch(0.975 0.01 240) 0%,
+    oklch(0.965 0.018 220) 52%,
+    oklch(0.955 0.022 205) 100%
+  );
+}
+
+.wappa-mist-grid {
+  background-image:
+    linear-gradient(to right, oklch(0.28 0.05 230 / 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(0.28 0.05 230 / 0.08) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.wappa-mist-spot {
+  background:
+    radial-gradient(ellipse 74% 55% at 84% 10%, oklch(0.8 0.12 75 / 0.22), transparent 60%),
+    radial-gradient(ellipse 64% 50% at 6% 96%, oklch(0.63 0.08 235 / 0.16), transparent 62%);
+}
+
+.wappa-page-hero-aura {
+  background:
+    radial-gradient(ellipse 58% 44% at 14% 20%, oklch(0.985 0.012 95 / 0.54), transparent 68%),
+    radial-gradient(ellipse 50% 42% at 88% 14%, oklch(0.8 0.13 75 / 0.24), transparent 68%),
+    radial-gradient(ellipse 66% 52% at 72% 86%, oklch(0.76 0.09 220 / 0.18), transparent 72%);
+}
