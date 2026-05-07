@@ -209,3 +209,125 @@
 .gdsp-rise {
   animation: gdsp-rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
+
+/* Hero motion graphics */
+@keyframes wappa-aurora-shift {
+  0% {
+    transform: translate3d(-2%, -1%, 0) scale(1.02);
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    transform: translate3d(2%, 1.5%, 0) scale(1.05);
+    filter: hue-rotate(10deg);
+  }
+  100% {
+    transform: translate3d(-1.5%, -1%, 0) scale(1.03);
+    filter: hue-rotate(0deg);
+  }
+}
+
+@keyframes wappa-float {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-14px) translateX(6px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+
+@keyframes wappa-shimmer {
+  0% {
+    transform: translateX(-140%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.35;
+  }
+  60% {
+    opacity: 0.45;
+  }
+  100% {
+    transform: translateX(140%);
+    opacity: 0;
+  }
+}
+
+.wappa-hero-aurora {
+  background:
+    radial-gradient(ellipse 60% 45% at 14% 20%, oklch(0.95 0.035 92 / 0.26), transparent 62%),
+    radial-gradient(ellipse 55% 45% at 88% 14%, oklch(0.8 0.13 75 / 0.3), transparent 66%),
+    radial-gradient(ellipse 60% 52% at 76% 82%, oklch(0.76 0.09 220 / 0.18), transparent 70%);
+  animation: wappa-aurora-shift 18s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.wappa-hero-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(2px);
+  mix-blend-mode: screen;
+  animation: wappa-float 10s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.wappa-hero-orb-one {
+  width: 16rem;
+  height: 16rem;
+  left: -3.5rem;
+  top: 20%;
+  background: radial-gradient(circle, oklch(0.96 0.03 92 / 0.45), transparent 68%);
+}
+
+.wappa-hero-orb-two {
+  width: 20rem;
+  height: 20rem;
+  right: -4.5rem;
+  top: 6%;
+  background: radial-gradient(circle, oklch(0.8 0.14 75 / 0.48), transparent 70%);
+  animation-delay: 1.8s;
+}
+
+.wappa-hero-orb-three {
+  width: 14rem;
+  height: 14rem;
+  right: 28%;
+  bottom: 5%;
+  background: radial-gradient(circle, oklch(0.78 0.09 220 / 0.3), transparent 72%);
+  animation-delay: 3.3s;
+}
+
+.wappa-hero-shimmer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.wappa-hero-shimmer::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  bottom: -10%;
+  width: 35%;
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    oklch(0.95 0.03 92 / 0.14) 45%,
+    oklch(0.78 0.13 75 / 0.15) 58%,
+    transparent 100%
+  );
+  animation: wappa-shimmer 9s ease-in-out infinite;
+}
+
+.wappa-hero-glass {
+  background: linear-gradient(
+    130deg,
+    oklch(0.98 0.01 95 / 0.2) 0%,
+    oklch(0.8 0.12 75 / 0.16) 52%,
+    oklch(0.18 0.02 155 / 0.68) 100%
+  );
+  backdrop-filter: blur(10px);
+}

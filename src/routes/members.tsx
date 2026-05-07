@@ -27,12 +27,12 @@ export const Route = createFileRoute("/members")({
 
 const LEADERS = [
   {
-    i: "AB",
+    i: "RK",
     role: "Projects Director",
-    name: "Dr. Ama Kwame Boateng",
-    title: "PhD · Regional Procurement & Infrastructure Specialist",
+    name: "Dr. Richard Kwabena",
+    title: "PhD - Regional Procurement & Infrastructure Specialist",
     creds: ["PhD", "MSc", "BEng", "MCIPS"],
-    bio: "Dr. Ama Kwame Boateng leads strategic sourcing and project governance at WAPPA. She previously directed multi-country infrastructure procurement programmes across transport, health systems and industrial parks, and has advised sovereign institutions on transparent contract delivery and supplier risk controls.",
+    bio: "Dr. Richard Kwabena leads strategic sourcing, contract governance and delivery assurance at WAPPA. Over nearly two decades, he has directed multi-country procurement programmes across transport, health systems, industrial equipment and logistics corridors, with a strong record of improving procurement cycle time, bidder quality and post-award compliance. He is known for building practical supplier due-diligence frameworks, negotiating performance-based contracts and aligning large public procurements with measurable development outcomes. At WAPPA, he oversees end-to-end procurement strategy, portfolio risk controls and implementation standards across high-impact initiatives in Ghana and the wider West African sub-region.",
     facts: [
       { l: "Procurement Experience", v: "18+ Years" },
       { l: "Regional Programmes Led", v: "12" },
@@ -44,9 +44,9 @@ const LEADERS = [
     i: "KM",
     role: "Assistant Director",
     name: "Mr. Kojo Mensimah",
-    title: "LLM · CPA · Governance & Compliance Lead",
+    title: "LLM - CPA - Governance & Compliance Lead",
     creds: ["LLM", "MBA", "CPA", "CA"],
-    bio: "Mr. Kojo Mensimah oversees governance assurance, financial controls and contract compliance. He has supported public institutions with policy reform, audit readiness and procurement integrity frameworks, improving process transparency and supplier accountability.",
+    bio: "Mr. Kojo Mensimah provides executive oversight on governance assurance, financial controls and contract compliance across WAPPA programmes. He has led policy reform and audit-readiness engagements for public institutions, helping teams build stronger accountability systems, evidence-based approval workflows and transparent expenditure controls. His work includes designing procurement integrity frameworks, supervising compliance reviews and strengthening contract administration practices to reduce disputes and performance slippage. He also supports board-level reporting by translating complex risk and compliance findings into clear operational recommendations for faster decision-making.",
     facts: [
       { l: "Compliance Audits", v: "150+" },
       { l: "Policy Reform Projects", v: "20+" },
@@ -58,9 +58,9 @@ const LEADERS = [
     i: "EN",
     role: "Administrative Services Lead",
     name: "Ms. Efua Nartey",
-    title: "MSc · Operations & Programme Administration",
+    title: "MSc - Operations & Programme Administration",
     creds: ["MSc", "MA", "BSc"],
-    bio: "Ms. Efua Nartey manages board operations, programme administration and executive coordination. Her work focuses on delivery planning, documentation quality and cross-team execution standards for high-value procurement programmes.",
+    bio: "Ms. Efua Nartey manages board operations, programme administration and executive coordination for WAPPA's leadership and technical teams. She leads delivery planning cycles, governance documentation standards and coordination protocols that keep multi-stakeholder procurement programmes on schedule and audit-ready. Her strengths include structuring decision calendars, improving records management and aligning internal teams around clear milestones, ownership and reporting lines. She also supports communication between operational units and leadership to ensure implementation risks are surfaced early and resolved before they affect programme delivery.",
     facts: [
       { l: "Operations Leadership", v: "10+ Years" },
       { l: "Programmes Coordinated", v: "80+" },

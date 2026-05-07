@@ -30,10 +30,10 @@ export const Route = createFileRoute("/")({
 });
 
 const TICKER = [
-  "MoU signed valued at US$973.6 Million with major donor agencies",
-  "Economic grant of US$756.2 Million to boost trade in West Africa",
-  "US$68.8 Million hospital & farming equipment supply project underway",
-  "Partnership with USAID, WHO, UNICEF, AfDB, DFID and World Bank confirmed",
+  "US$973.6M framework agreements activated with strategic donor partners",
+  "US$756.2M economic support pipeline aligned to regional trade resilience",
+  "US$68.8M health and agri-equipment deployment currently in execution",
+  "Joint delivery channels with USAID, WHO, UNICEF, AfDB, DFID and World Bank",
 ];
 
 const PROJECTS = [
@@ -106,6 +106,47 @@ const SERVICES = [
     d: "Our aim is to support you in strengthening efficiency and sustainability. We reduce your workload while constantly providing market information, analysis and projections — keeping you current with target market developments.",
   },
 ];
+
+const PULSE_METRICS = [
+  {
+    v: "42",
+    l: "Active Frameworks",
+    d: "Live procurement programmes monitored in our delivery dashboard.",
+  },
+  {
+    v: "18",
+    l: "Priority Corridors",
+    d: "Infrastructure and logistics lanes supported across key trade routes.",
+  },
+  {
+    v: "96%",
+    l: "Compliance Rate",
+    d: "Average documentation compliance at pre-award evaluation stage.",
+  },
+  {
+    v: "72h",
+    l: "Review Window",
+    d: "Typical response time for complete supplier submissions.",
+  },
+] as const;
+
+const DELIVERY_PILLARS = [
+  {
+    k: "01",
+    t: "Evidence-Led Procurement",
+    d: "Every major decision is backed by supplier intelligence, category benchmarks and risk signals before award.",
+  },
+  {
+    k: "02",
+    t: "Faster Portfolio Delivery",
+    d: "We align procurement planning to implementation timelines so projects move from approval to execution with fewer bottlenecks.",
+  },
+  {
+    k: "03",
+    t: "Transparent Governance",
+    d: "Our teams maintain structured review trails, compliance checkpoints and clear reporting for partner confidence.",
+  },
+] as const;
 
 const HOME_VIDEO_THUMBNAIL = "https://img.youtube.com/vi/i_WCAKHmLPk/hqdefault.jpg";
 
@@ -196,6 +237,11 @@ function Home() {
             style={{ background: slide.overlay }}
           />
         ))}
+        <div className="absolute inset-0 wappa-hero-aurora opacity-90" />
+        <div className="wappa-hero-orb wappa-hero-orb-one" />
+        <div className="wappa-hero-orb wappa-hero-orb-two" />
+        <div className="hidden md:block wappa-hero-orb wappa-hero-orb-three" />
+        <div className="wappa-hero-shimmer opacity-90" />
         <div className="absolute inset-0 gdsp-grain opacity-60 pointer-events-none" />
 
         <div className="absolute top-4 right-4 sm:top-6 sm:right-6 lg:top-8 lg:right-10 z-10 flex items-center gap-2">
@@ -229,15 +275,32 @@ function Home() {
             {HERO_SLIDES[activeSlide].label}
           </div>
           <h1 className="gdsp-rise font-display text-4xl sm:text-6xl md:text-8xl lg:text-[10rem] leading-[0.9] tracking-[-0.02em] max-w-6xl">
-            Building Africa's <em className="text-gold not-italic font-normal">development</em>{" "}
+            Shaping Africa's <em className="text-gold not-italic font-normal">development</em>{" "}
             <span className="italic">future.</span>
           </h1>
           <div className="mt-10 sm:mt-14 grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-end">
-            <p className="lg:col-span-5 text-base sm:text-lg text-bone/80 leading-relaxed max-w-md">
-              A sovereign procurement authority overseeing infrastructure, healthcare, agriculture
-              and consumables across West Africa — connecting verified suppliers to{" "}
-              <span className="text-bone">553 million people</span>.
-            </p>
+            <div className="lg:col-span-5">
+              <p className="text-base sm:text-lg text-bone/80 leading-relaxed max-w-md">
+                A regional procurement institution coordinating infrastructure, healthcare,
+                agriculture and essential supply programmes across West Africa - linking trusted
+                suppliers to <span className="text-bone">553 million people</span>.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {[
+                  "Structured Assessment",
+                  "Supplier Validation",
+                  "Cross-Border Delivery",
+                  "Outcome Monitoring",
+                ].map((item) => (
+                  <span
+                    key={item}
+                    className="px-3 py-1 border border-bone/25 wappa-hero-glass text-bone/80 text-[10px] font-mono uppercase tracking-[0.18em]"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
             <div className="lg:col-span-4 flex flex-col sm:flex-row flex-wrap gap-3">
               <Link
                 to="/supply"
@@ -252,10 +315,23 @@ function Home() {
                 Our Profile
               </Link>
             </div>
-            <div className="lg:col-span-3 lg:text-right text-[10px] font-mono uppercase tracking-widest text-bone/50 leading-relaxed">
-              Vol. 11 · 04 / 2026
-              <br />
-              Republic of Ghana
+            <div className="lg:col-span-3">
+              <div className="wappa-hero-glass border border-bone/20 p-4 sm:p-5 text-[10px] font-mono uppercase tracking-[0.2em] text-bone/80">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-gold">Live Cycle</span>
+                  <span className="text-bone/60">Q2 · 2026</span>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-bone/55">Active Reviews</span>
+                    <span className="text-bone">42</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-bone/55">Priority Tracks</span>
+                    <span className="text-bone">18</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div className="mt-8 sm:mt-10 flex items-center gap-2">
@@ -319,6 +395,35 @@ function Home() {
         </div>
       </section>
 
+      <section className="border-b border-line bg-night/85">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 py-10 sm:py-12">
+          <div className="flex items-center justify-between gap-4 mb-8">
+            <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-gold">
+              Operational Pulse
+            </div>
+            <div className="hidden sm:block text-[10px] font-mono uppercase tracking-[0.2em] text-bone/45">
+              Live Programme Indicators
+            </div>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {PULSE_METRICS.map((metric) => (
+              <article
+                key={metric.l}
+                className="border border-line bg-night/50 p-5 sm:p-6 hover:border-gold/40 transition-colors"
+              >
+                <div className="font-display text-4xl sm:text-5xl text-gold tabular-nums">
+                  {metric.v}
+                </div>
+                <div className="mt-2 text-[10px] font-mono uppercase tracking-[0.22em] text-bone/60">
+                  {metric.l}
+                </div>
+                <p className="mt-4 text-sm text-bone/65 leading-relaxed">{metric.d}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Auto-alternating content sections start here.
           start="light" → first section is light, then dark, light, dark... */}
       <SectionFlow start="light">
@@ -330,6 +435,11 @@ function Home() {
         {/* PROJECTS */}
         <Section padding="tight">
           <ProjectsBlock />
+        </Section>
+
+        {/* DELIVERY PILLARS */}
+        <Section atmosphere="grid">
+          <PillarsBlock />
         </Section>
 
         {/* SECTORS LIST + PARTNERS */}
@@ -374,7 +484,7 @@ function WelcomeBlock() {
           <div className={`text-[10px] font-mono uppercase tracking-[0.3em] ${t.accent} mb-4`}>
             WAPPA At a Glance
           </div>
-          <h3 className={`font-display text-4xl mb-4 ${t.text}`}>Procurement with Purpose</h3>
+          <h3 className={`font-display text-4xl mb-4 ${t.text}`}>Procurement with Precision</h3>
           <p className={`${t.textMuted} leading-relaxed mb-10`}>
             Serving public &amp; private sectors across West Africa with transparency,
             accountability and efficiency.
@@ -404,14 +514,14 @@ function WelcomeBlock() {
         </SectionHeading>
         <div className={`mt-10 space-y-5 text-lg ${t.textMuted} leading-relaxed`}>
           <p>
-            WAPPA has been assigned the responsibility to procure various products from verified
-            suppliers and companies on behalf of both private and public sector organisations across
-            Ghana and West Africa.
+            WAPPA is mandated to coordinate transparent procurement programmes for public and
+            private institutions, connecting verified suppliers with high-priority development needs
+            across Ghana and West Africa.
           </p>
           <p>
-            Our mandate covers a wide range of sectors, from hospital equipment and agricultural
-            inputs to construction materials and consumer goods — all managed with a commitment to
-            fairness, transparency and value for public funds.
+            Our scope spans healthcare systems, infrastructure materials, agricultural inputs,
+            industrial goods and essential consumables - managed through disciplined evaluation,
+            structured governance and value-for-money controls.
           </p>
         </div>
         <div className="mt-10 flex flex-wrap gap-3">
@@ -459,6 +569,41 @@ function ProjectsBlock() {
             </div>
             <h3 className={`font-display text-3xl mb-4 ${t.text}`}>{p.t}</h3>
             <p className={`${t.textMuted} leading-relaxed`}>{p.d}</p>
+          </article>
+        ))}
+      </div>
+    </>
+  );
+}
+
+function PillarsBlock() {
+  const t = useToneTokens();
+  return (
+    <>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-14 items-end">
+        <div className="lg:col-span-7">
+          <SectionHeading eyebrow="How We Deliver" size="xl">
+            Built for measurable <em className={`${t.accent} not-italic`}>results.</em>
+          </SectionHeading>
+        </div>
+        <p className={`lg:col-span-5 ${t.textMuted} leading-relaxed`}>
+          Our operating model combines speed, verification and accountability, so strategic
+          procurement decisions translate into real outcomes for communities and partners.
+        </p>
+      </div>
+      <div className={`grid grid-cols-1 md:grid-cols-3 gap-px ${t.divider} border ${t.border}`}>
+        {DELIVERY_PILLARS.map((pillar) => (
+          <article
+            key={pillar.k}
+            className={`${t.cardBg} p-8 sm:p-10 ${t.cardBgHover} transition-colors group`}
+          >
+            <div
+              className={`font-display text-5xl ${t.tone === "dark" ? "text-gold/35 group-hover:text-gold" : "text-clay/40 group-hover:text-clay"} transition-colors mb-4`}
+            >
+              {pillar.k}
+            </div>
+            <h3 className={`font-display text-3xl mb-4 ${t.text}`}>{pillar.t}</h3>
+            <p className={`${t.textMuted} leading-relaxed`}>{pillar.d}</p>
           </article>
         ))}
       </div>
@@ -545,9 +690,9 @@ function QuoteBlock() {
       <blockquote
         className={`font-display text-3xl sm:text-4xl md:text-6xl leading-[1.05] max-w-5xl ${t.text}`}
       >
-        <span className={t.accent}>"</span>The Funds will be used judiciously to cover payment for
-        supplies in <em className={t.accent}>Health Related Areas</em> — equipping Hospitals,
-        Maternities and Health Centers to fight COVID-19 and beyond.
+        <span className={t.accent}>"</span>We commit resources with discipline and urgency to
+        deliver essential <em className={t.accent}>health and infrastructure supplies</em> where
+        impact is highest, ensuring communities receive reliable support now and in the years ahead.
         <span className={t.accent}>"</span>
       </blockquote>
       <div className="mt-10 flex items-center gap-6">
@@ -578,9 +723,9 @@ function WatchBlock() {
           Learn more about our <em className={`${t.accent} not-italic`}>mission & impact.</em>
         </SectionHeading>
         <p className={`mt-8 ${t.textMuted} leading-relaxed mb-5`}>
-          Watch our official presentation to understand how WAPPA is transforming public procurement
-          in West Africa — ensuring fair evaluation, accountable spending and meaningful impact for
-          communities across the region.
+          Watch our official briefing to see how WAPPA is modernising procurement systems across
+          West Africa - combining transparent assessment, supplier integrity checks and measurable
+          delivery outcomes for communities.
         </p>
         <p className={`${t.textMuted} leading-relaxed mb-10`}>
           Our work reaches over 553 million people across the African sub-region, connecting

@@ -77,7 +77,7 @@ const STEPS = [
   {
     c: "D",
     t: "Supply Approval — Official Confirmation Letter",
-    d: "If your invoice receives general acceptance, FASE members issue an Official Confirmation Supply Approval Letter, followed by a direct call from Dr. Ama Kwame Boateng, Projects Director - WAPPA.",
+    d: "If your invoice receives general acceptance, FASE members issue an Official Confirmation Supply Approval Letter, followed by a direct call from Dr. Richard Kwabena, Projects Director - WAPPA.",
   },
   {
     c: "E",
