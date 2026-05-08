@@ -495,3 +495,25 @@
     radial-gradient(ellipse 50% 42% at 88% 14%, oklch(0.8 0.13 75 / 0.24), transparent 68%),
     radial-gradient(ellipse 66% 52% at 72% 86%, oklch(0.76 0.09 220 / 0.18), transparent 72%);
 }
+
+@keyframes wappa-page-hero-pan {
+  0% {
+    transform: scale(1.06) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.1) translate3d(1.2%, 0.8%, 0);
+  }
+  100% {
+    transform: scale(1.06) translate3d(0, 0, 0);
+  }
+}
+
+.wappa-page-hero-image {
+  animation: wappa-page-hero-pan 22s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wappa-page-hero-image {
+    animation: none;
+  }
+}

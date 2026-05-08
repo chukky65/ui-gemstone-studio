@@ -1,9 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { TopBar } from "@/components/site/TopBar";
 import { PageHero } from "@/components/site/PageHero";
 import { Section, SectionFlow, SectionHeading, useToneTokens } from "@/components/site/Section";
+
+const MEMBERS_HERO_IMAGE =
+  "https://ghsupplyprojects.org/wp-content/uploads/2023/07/FsApqDGWwAAa2jM.jpg";
 
 export const Route = createFileRoute("/members")({
   component: MembersPage,
@@ -32,7 +36,23 @@ const LEADERS = [
     name: "Dr. Richard Kwabena",
     title: "PhD - Regional Procurement & Infrastructure Specialist",
     creds: ["PhD", "MSc", "BEng", "MCIPS"],
-    bio: "Dr. Richard Kwabena leads strategic sourcing, contract governance and delivery assurance at WAPPA. Over nearly two decades, he has directed multi-country procurement programmes across transport, health systems, industrial equipment and logistics corridors, with a strong record of improving procurement cycle time, bidder quality and post-award compliance. He is known for building practical supplier due-diligence frameworks, negotiating performance-based contracts and aligning large public procurements with measurable development outcomes. At WAPPA, he oversees end-to-end procurement strategy, portfolio risk controls and implementation standards across high-impact initiatives in Ghana and the wider West African sub-region.",
+    bio: `Dr. Richard Kwabena leads strategic sourcing, contract governance and delivery assurance at WAPPA, an organization dedicated to optimizing procurement processes in the public sector. Over nearly two decades, he has crafted a successful career in procurement, directing multi-country programs that span transport, health systems, industrial equipment and logistics corridors. His expertise is backed by a strong record of improving procurement cycle times, enhancing bidder quality and ensuring rigorous post-award compliance, all of which are essential for maintaining integrity in large public contracts.
+
+Dr. Kwabena is highly regarded for developing practical supplier due diligence frameworks that identify supplier risks and establish clear performance standards. This approach ensures that only competent and reliable suppliers are engaged. He has also led negotiations for performance-based contracts that strengthen accountability and align procurement with broader public sector project goals.
+
+At WAPPA, he oversees end-to-end procurement strategy, portfolio risk controls and implementation standards across high-impact initiatives in Ghana and the wider West African sub-region. His role includes proactive risk mitigation, transparent governance and strong control mechanisms that safeguard public funds and build stakeholder confidence.
+
+Beyond operations, Dr. Kwabena actively supports capacity building for emerging procurement professionals across the region. Through mentorship and structured training, he shares practical methods in strategic sourcing and contract governance to raise professional standards and institutional resilience.
+
+He has worked across complex procurement environments shaped by changing regulations, economic volatility and diverse institutional needs. His ability to adapt strategy to context has helped programs remain effective while still delivering measurable development outcomes.
+
+Dr. Kwabena also collaborates with government agencies, NGOs and private sector partners to deliver integrated solutions. He has championed the adoption of digital procurement tools, including e-procurement workflows, to reduce administrative overhead, improve transparency and strengthen execution speed.
+
+He further integrates sustainability into procurement strategy, encouraging supplier selection and contracting approaches that balance immediate delivery needs with long-term environmental and social value.
+
+His leadership style emphasizes collaboration, accountability and continuous improvement. By encouraging broad participation and practical innovation, he has helped shape procurement systems that are both efficient and development-focused.
+
+As procurement practice continues to evolve, Dr. Kwabena remains committed to global best practices, ongoing professional development and institutional learning. His strategic vision continues to position WAPPA as a leading authority in transparent, results-driven procurement across Ghana and West Africa.`,
     facts: [
       { l: "Procurement Experience", v: "18+ Years" },
       { l: "Regional Programmes Led", v: "12" },
@@ -46,7 +66,21 @@ const LEADERS = [
     name: "Mr. Kojo Mensah",
     title: "LLM - CPA - Governance & Compliance Lead",
     creds: ["LLM", "MBA", "CPA", "CA"],
-    bio: "Mr. Kojo Mensah provides executive oversight on governance assurance, financial controls and contract compliance across WAPPA programmes. He has led policy reform and audit-readiness engagements for public institutions, helping teams build stronger accountability systems, evidence-based approval workflows and transparent expenditure controls. His work includes designing procurement integrity frameworks, supervising compliance reviews and strengthening contract administration practices to reduce disputes and performance slippage. He also supports board-level reporting by translating complex risk and compliance findings into clear operational recommendations for faster decision-making.",
+    bio: `Mr. Kojo Mensah plays a crucial role in providing executive oversight on governance assurance, financial controls and contract compliance across WAPPA programmes. His depth of experience has made him a trusted leader in strengthening institutional accountability, particularly within public sector systems.
+
+Through his leadership, Mr. Mensah has spearheaded policy reform initiatives and audit-readiness engagements designed to improve institutional integrity and operational effectiveness. He helps teams build stronger accountability structures by introducing evidence-based approval workflows and transparent expenditure controls that improve clarity and reduce the risk of misuse.
+
+A key part of his work is the design of procurement integrity frameworks that reinforce fairness, efficiency and transparency. By establishing clear standards and governance checkpoints, he helps organizations navigate complex procurement processes with greater confidence while reducing avoidable disputes and delivery delays.
+
+Mr. Mensah also leads and supervises compliance reviews to identify risks early and close governance gaps before they escalate. His practical approach to contract administration has improved compliance consistency and reduced performance slippage across critical programmes.
+
+At board level, he is known for translating complex compliance and risk findings into concise, actionable recommendations that support faster and more informed executive decisions.
+
+He also promotes a culture of accountability through professional development and team capability building, ensuring that personnel are equipped to uphold high governance standards over the long term.
+
+The impact of his work extends beyond immediate controls. By championing integrity, transparency and disciplined oversight, Mr. Mensah helps strengthen public trust, improve institutional credibility and support more sustainable public service delivery outcomes.
+
+His combined expertise in governance assurance, financial control and contract compliance continues to position him as a key driver of measurable improvement across WAPPA and the wider public sector ecosystem.`,
     facts: [
       { l: "Compliance Audits", v: "150+" },
       { l: "Policy Reform Projects", v: "20+" },
@@ -124,9 +158,12 @@ function MembersPage() {
       <PageHero
         eyebrow="Management Board"
         breadcrumb="Our Members"
+        imageSrc={MEMBERS_HERO_IMAGE}
+        imageAlt="Management board members during a formal procurement strategy session."
+        imagePosition="50% 35%"
         title={
           <>
-            Our <em className="text-[#8b6c2d] not-italic">members.</em>
+            Our <em className="text-[#f2cb79] not-italic">members.</em>
           </>
         }
         intro="Meet the dedicated professionals guiding WAPPA - a management board of experienced specialists in procurement, governance, finance, evaluation and development."
@@ -210,7 +247,15 @@ function LeadersBlock() {
               </div>
             </div>
             <div className="lg:col-span-9">
-              <p className={`text-lg ${t.textMuted} leading-relaxed mb-8`}>{l.bio}</p>
+              <ExpandableBio
+                text={l.bio}
+                textClassName={`text-lg ${t.textMuted} leading-relaxed mb-4 whitespace-pre-line`}
+                buttonClassName={`inline-flex items-center text-[11px] font-mono uppercase tracking-[0.18em] mb-8 ${
+                  t.tone === "dark"
+                    ? "text-[#2f5f8a] hover:text-[#24415f]"
+                    : "text-[#8b6c2d] hover:text-[#755a22]"
+                }`}
+              />
               <div
                 className={`grid grid-cols-2 lg:grid-cols-4 gap-px ${t.divider} border ${t.border}`}
               >
@@ -229,6 +274,34 @@ function LeadersBlock() {
           </article>
         ))}
       </div>
+    </>
+  );
+}
+
+function ExpandableBio({
+  text,
+  textClassName,
+  buttonClassName,
+  collapsedChars = 860,
+}: {
+  text: string;
+  textClassName: string;
+  buttonClassName: string;
+  collapsedChars?: number;
+}) {
+  const [expanded, setExpanded] = useState(false);
+  const shouldTruncate = text.length > collapsedChars;
+  const visibleText =
+    expanded || !shouldTruncate ? text : `${text.slice(0, collapsedChars).trimEnd()}...`;
+
+  return (
+    <>
+      <p className={textClassName}>{visibleText}</p>
+      {shouldTruncate && (
+        <button type="button" onClick={() => setExpanded((v) => !v)} className={buttonClassName}>
+          {expanded ? "Read Less" : "Read More"}
+        </button>
+      )}
     </>
   );
 }
@@ -306,7 +379,7 @@ function CTABlock() {
           to="/supply"
           className={`${t.btnGhost} px-8 py-5 text-[11px] font-bold uppercase tracking-[0.2em] transition-colors w-full sm:w-auto text-center`}
         >
-          Supply Procedures
+          Supply Overview
         </Link>
       </div>
     </>

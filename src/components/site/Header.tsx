@@ -5,9 +5,10 @@ import { BrandMark } from "@/components/site/BrandMark";
 const NAV = [
   { to: "/", label: "Home" },
   { to: "/members", label: "Our Members" },
-  { to: "/supply", label: "Supply" },
-  { to: "/profile", label: "Our Profile" },
-  { to: "/contact", label: "Contact" },
+  { to: "/supply", label: "Supply Overview" },
+  { to: "/requirement", label: "Requirement" },
+  { to: "/profile", label: "About Us" },
+  { to: "/contact", label: "Contact Us" },
 ] as const;
 
 export function Header() {
@@ -19,7 +20,7 @@ export function Header() {
       <Link to="/" className="flex items-center gap-2 sm:gap-4 group min-w-0">
         <BrandMark size="sm" className="transition-transform group-hover:scale-110" />
         <div className="min-w-0">
-          <div className="font-display text-xl sm:text-2xl leading-none tracking-tight text-[#10243d]">
+          <div className="font-display text-3xl sm:text-4xl font-extrabold leading-none tracking-tight text-[#10243d]">
             WAPPA
           </div>
           <div className="hidden sm:block text-[8px] md:text-[9px] font-mono uppercase tracking-[0.18em] md:tracking-[0.3em] text-[#284565]/55 mt-1 truncate">

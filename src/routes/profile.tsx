@@ -3,19 +3,20 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { TopBar } from "@/components/site/TopBar";
 import { PageHero } from "@/components/site/PageHero";
+import heroInfrastructureImg from "@/assets/hero-infrastructure.png";
 import { Section, SectionFlow, SectionHeading, useToneTokens } from "@/components/site/Section";
 
 export const Route = createFileRoute("/profile")({
   component: ProfilePage,
   head: () => ({
     meta: [
-      { title: "Our Profile — WAPPA" },
+      { title: "About Us — WAPPA" },
       {
         name: "description",
         content:
           "About West Africa's Premier Procurement Authority — established 2014. Our mission, mandate, principles and 23 core operational functions.",
       },
-      { property: "og:title", content: "Our Profile — WAPPA" },
+      { property: "og:title", content: "About Us — WAPPA" },
       {
         property: "og:description",
         content:
@@ -152,10 +153,13 @@ function ProfilePage() {
 
       <PageHero
         eyebrow="About WAPPA"
-        breadcrumb="Our Profile"
+        breadcrumb="About Us"
+        imageSrc={heroInfrastructureImg}
+        imageAlt="Urban infrastructure corridor representing strategic public development delivery in West Africa."
+        imagePosition="50% 45%"
         title={
           <>
-            Our <em className="text-[#8b6c2d] not-italic">profile.</em>
+            About <em className="text-[#f2cb79] not-italic">us.</em>
           </>
         }
         intro="West Africa's Premier Procurement Authority was established to provide a legal, institutional and professional framework for public procurement — serving the people of Ghana and the West African sub-region with accountability and integrity."
@@ -425,7 +429,7 @@ function CommitmentBlock() {
           to="/supply"
           className={`${t.btnPrimary} px-7 py-4 text-[11px] font-bold uppercase tracking-[0.2em] transition-colors w-full sm:w-auto text-center`}
         >
-          Explore Supply
+          Supply Overview
         </Link>
         <Link
           to="/contact"

@@ -6,6 +6,7 @@ import { TopBar } from "@/components/site/TopBar";
 import heroHealthcareImg from "@/assets/hero-healthcare.png";
 import heroPortLogisticsImg from "@/assets/hero-port-logistics.png";
 import heroInfrastructureImg from "@/assets/hero-infrastructure.png";
+import contactBuildingImg from "@/assets/wappa-contact-hq.png";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -184,10 +185,36 @@ const ANNOUNCEMENTS = [
   "Joint channels with USAID, WHO, UNICEF, AfDB, DFID and World Bank",
 ] as const;
 
-const HOME_VIDEO_THUMBNAIL = "https://img.youtube.com/vi/i_WCAKHmLPk/hqdefault.jpg";
+const HOME_FRAME_SLIDES = [
+  {
+    image: heroPortLogisticsImg,
+    alt: "Port and freight operations in a sunset logistics corridor.",
+    label: "Regional Freight",
+    objectPosition: "50% 52%",
+  },
+  {
+    image: heroInfrastructureImg,
+    alt: "Large infrastructure interchange and transport expansion.",
+    label: "Infrastructure",
+    objectPosition: "50% 50%",
+  },
+  {
+    image: heroHealthcareImg,
+    alt: "Modern surgical theatre and medical infrastructure.",
+    label: "Healthcare",
+    objectPosition: "50% 50%",
+  },
+  {
+    image: contactBuildingImg,
+    alt: "WAPPA headquarters building in Accra.",
+    label: "WAPPA HQ",
+    objectPosition: "50% 50%",
+  },
+] as const;
 
 function Home() {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [frameSlide, setFrameSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
@@ -199,6 +226,14 @@ function Home() {
 
     return () => window.clearInterval(timer);
   }, [isPaused]);
+
+  useEffect(() => {
+    const frameTimer = window.setInterval(() => {
+      setFrameSlide((prev) => (prev + 1) % HOME_FRAME_SLIDES.length);
+    }, 4000);
+
+    return () => window.clearInterval(frameTimer);
+  }, []);
 
   const nextSlide = () => {
     setActiveSlide((prev) => (prev + 1) % HERO_SLIDES.length);
@@ -214,49 +249,39 @@ function Home() {
       <Header />
 
       <section
-        className="relative overflow-hidden border-b border-[#ddcfb0] min-h-[calc(100svh-6.5rem)] sm:min-h-[calc(100svh-8rem)]"
+        className="relative overflow-hidden border-b border-[#ddcfb0] h-[100svh] bg-[#0f2035]"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
-        {HERO_SLIDES.map((slide, idx) => (
-          <img
-            key={slide.id}
-            src={slide.image}
-            alt={slide.alt}
-            width={1920}
-            height={1080}
-            style={{ objectPosition: slide.objectPosition }}
-            className={`absolute inset-0 h-full w-full object-cover transition-[opacity,transform] duration-[1400ms] ease-out ${
-              idx === activeSlide ? "opacity-[0.55] scale-100" : "opacity-0 scale-110"
-            }`}
-          />
-        ))}
+        <div className="absolute inset-0 z-0">
+          {HERO_SLIDES.map((slide, idx) => (
+            <img
+              key={slide.id}
+              src={slide.image}
+              alt={slide.alt}
+              width={1920}
+              height={1080}
+              style={{ objectPosition: slide.objectPosition }}
+              className={`absolute inset-0 h-full w-full object-cover transition-[opacity,transform] duration-[1400ms] ease-out ${
+                idx === activeSlide ? "opacity-100 scale-100" : "opacity-0 scale-105"
+              }`}
+            />
+          ))}
+          <div className="absolute inset-0 bg-black/32 md:bg-gradient-to-r md:from-black/72 md:via-black/44 md:to-black/26 pointer-events-none" />
+        </div>
 
-        <div className="absolute inset-0 bg-gradient-to-r from-[#fdfcf8]/95 via-[#fff8e8]/85 to-[#e6f0ff]/75" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#f7f3ea]/95 via-[#f6f1e6]/50 to-transparent" />
-
-        {HERO_SLIDES.map((slide, idx) => (
-          <div
-            key={`${slide.id}-overlay`}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              idx === activeSlide ? "opacity-100" : "opacity-0"
-            }`}
-            style={{ background: slide.overlay }}
-          />
-        ))}
-
-        <div className="absolute inset-0 wappa-hero-light-aurora" />
+        <div className="absolute inset-0 wappa-hero-light-aurora opacity-75" />
         <div className="wappa-hero-light-orb wappa-hero-light-orb-a" />
         <div className="wappa-hero-light-orb wappa-hero-light-orb-b" />
         <div className="hidden md:block wappa-hero-light-orb wappa-hero-light-orb-c" />
-        <div className="absolute inset-0 wappa-hero-light-shimmer" />
+        <div className="absolute inset-0 wappa-hero-light-shimmer opacity-90" />
 
-        <div className="absolute top-4 right-4 sm:top-6 sm:right-6 lg:top-8 lg:right-10 z-20 flex items-center gap-2">
+        <div className="absolute top-5 right-4 sm:top-8 sm:right-7 z-30 flex items-center gap-2">
           <button
             type="button"
             aria-label="Previous hero slide"
             onClick={prevSlide}
-            className="size-9 sm:size-10 border border-[#b9a16f] bg-white/70 text-[#10243d] hover:bg-white hover:border-[#8c7748] transition-colors flex items-center justify-center"
+            className="size-9 sm:size-10 rounded-full border border-white/60 bg-black/25 text-white hover:bg-black/40 transition-colors flex items-center justify-center"
           >
             {"<"}
           </button>
@@ -264,99 +289,95 @@ function Home() {
             type="button"
             aria-label="Next hero slide"
             onClick={nextSlide}
-            className="size-9 sm:size-10 border border-[#b9a16f] bg-white/70 text-[#10243d] hover:bg-white hover:border-[#8c7748] transition-colors flex items-center justify-center"
+            className="size-9 sm:size-10 rounded-full border border-white/60 bg-black/25 text-white hover:bg-black/40 transition-colors flex items-center justify-center"
           >
             {">"}
           </button>
         </div>
 
-        <div className="relative z-10 mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10 pt-14 sm:pt-20 lg:pt-24 pb-14 sm:pb-18">
-          <div className="inline-flex items-center gap-2 rounded-sm border border-[#c2ab79]/60 bg-white/70 px-3 py-1.5 text-[10px] font-mono uppercase tracking-[0.2em] text-[#7a5f2a] backdrop-blur-sm mb-7">
-            <span className="size-1.5 rounded-full bg-[#7a5f2a] animate-pulse" />
-            {HERO_SLIDES[activeSlide].label}
-          </div>
+        <div className="relative z-20 h-full w-full flex items-center px-5 sm:px-8 lg:px-14">
+          <div className="w-full md:w-[58%] max-w-[860px] rounded-2xl border border-white/20 bg-[#0f243d]/38 backdrop-blur-md p-6 sm:p-8 lg:p-10">
+            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-white/45 bg-black/20 px-4 py-2 text-[10px] font-mono uppercase tracking-[0.24em] text-white/95 mb-6">
+              <span className="size-1.5 rounded-full bg-[#f2cb79] animate-pulse" />
+              {HERO_SLIDES[activeSlide].label}
+            </span>
 
-          <h1 className="gdsp-rise font-display text-[#10243d] text-4xl sm:text-6xl md:text-8xl lg:text-[9.6rem] leading-[0.9] tracking-[-0.02em] max-w-6xl">
-            Shaping Africa&apos;s <em className="text-[#8b6c2d] not-italic">development</em> future.
-          </h1>
+            <h1 className="gdsp-rise font-display text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.04] drop-shadow-[0_2px_18px_rgba(0,0,0,0.55)]">
+              Shaping Africa&apos;s <em className="text-[#f2cb79] not-italic">development</em>{" "}
+              future.
+            </h1>
 
-          <div className="mt-10 sm:mt-14 grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-end">
-            <div className="lg:col-span-6">
-              <p className="text-base sm:text-lg text-[#1f3450]/85 leading-relaxed max-w-2xl">
-                A regional procurement institution coordinating infrastructure, healthcare,
-                agriculture and essential supply programmes across West Africa, linking trusted
-                suppliers to 553 million people.
-              </p>
-              <div className="mt-6 flex flex-wrap gap-2">
-                {HERO_CHIPS.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-sm border border-[#d8c9aa] bg-white/75 px-3 py-1 text-[10px] font-mono uppercase tracking-[0.18em] text-[#36516d]"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
+            <p className="mt-6 text-base md:text-lg text-white/90 max-w-2xl leading-relaxed">
+              A regional procurement institution coordinating infrastructure, healthcare,
+              agriculture and essential supply programmes across West Africa, linking trusted
+              suppliers to 553 million people.
+            </p>
+
+            <div className="mt-6 flex flex-wrap gap-2">
+              {HERO_CHIPS.map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full border border-white/40 bg-white/15 px-3 py-1 text-[10px] font-mono uppercase tracking-[0.18em] text-white/95 backdrop-blur-sm"
+                >
+                  {item}
+                </span>
+              ))}
             </div>
 
-            <div className="lg:col-span-3 flex flex-col sm:flex-row lg:flex-col gap-3">
+            <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 to="/supply"
-                className="rounded-sm bg-[#8b6c2d] text-white px-7 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-center hover:bg-[#755820] transition-colors"
+                className="rounded-full bg-white text-[#10243d] px-7 py-3.5 text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-[#f4e4bc] transition-colors"
               >
-                Explore Supply
+                Supply Overview
               </Link>
               <Link
                 to="/profile"
-                className="rounded-sm border border-[#c7b38d] bg-white/70 text-[#10243d] px-7 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-center hover:bg-white transition-colors"
+                className="rounded-full border border-white/65 bg-black/20 text-white px-7 py-3.5 text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-black/35 transition-colors"
               >
-                Our Profile
+                About Us
               </Link>
             </div>
+          </div>
+        </div>
 
-            <div className="lg:col-span-3">
-              <div className="rounded-sm border border-[#d8c9aa] bg-white/70 backdrop-blur-md p-5">
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-[10px] font-mono uppercase tracking-[0.22em] text-[#8b6c2d]">
-                    Programme Cycle
-                  </span>
-                  <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#3e5874]/70">
-                    Q2 / 2026
-                  </span>
-                </div>
-                <div className="space-y-3 text-sm text-[#1e3651]">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[#1e3651]/70">Active Reviews</span>
-                    <span className="font-semibold">42</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-[#1e3651]/70">Priority Tracks</span>
-                    <span className="font-semibold">18</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-[#1e3651]/70">Current Focus</span>
-                    <span className="font-semibold text-[#8b6c2d]">Cross-Border</span>
-                  </div>
-                </div>
+        <div className="hidden md:flex absolute bottom-10 right-10 z-20">
+          <div className="rounded-xl border border-white/35 bg-black/25 backdrop-blur-md px-5 py-4 w-[260px]">
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#f2cb79]">
+                Programme Cycle
+              </span>
+              <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-white/70">
+                Q2 / 2026
+              </span>
+            </div>
+            <div className="space-y-2 text-sm text-white/90">
+              <div className="flex items-center justify-between">
+                <span className="text-white/70">Active Reviews</span>
+                <span className="font-semibold">42</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-white/70">Priority Tracks</span>
+                <span className="font-semibold">18</span>
               </div>
             </div>
           </div>
+        </div>
 
-          <div className="mt-8 sm:mt-10 flex items-center gap-2">
-            {HERO_SLIDES.map((slide, idx) => (
-              <button
-                key={`${slide.id}-dot`}
-                type="button"
-                aria-label={`Go to ${slide.label} slide`}
-                onClick={() => setActiveSlide(idx)}
-                className={`h-1.5 rounded-full transition-all ${
-                  idx === activeSlide
-                    ? "w-10 bg-[#8b6c2d]"
-                    : "w-4 bg-[#6d85a0]/45 hover:bg-[#6d85a0]/75"
-                }`}
-              />
-            ))}
-          </div>
+        <div className="absolute bottom-7 left-0 right-0 z-30 flex justify-center gap-2">
+          {HERO_SLIDES.map((slide, idx) => (
+            <button
+              key={`${slide.id}-dot`}
+              type="button"
+              aria-label={`Go to ${slide.label} slide`}
+              onClick={() => setActiveSlide(idx)}
+              className={`transition-all rounded-full ${
+                idx === activeSlide
+                  ? "w-8 h-2 bg-white"
+                  : "w-2.5 h-2.5 bg-transparent border border-white/65 hover:bg-white/35"
+              }`}
+            />
+          ))}
         </div>
       </section>
 
@@ -600,34 +621,53 @@ function Home() {
             </div>
 
             <div className="lg:col-span-5">
-              <a
-                href="https://www.youtube.com/watch?v=i_WCAKHmLPk"
-                target="_blank"
-                rel="noreferrer"
-                className="block group rounded-sm overflow-hidden border border-[#d7c7a7] bg-white shadow-[0_16px_40px_rgba(22,46,74,0.12)]"
-              >
+              <div className="group rounded-sm overflow-hidden border border-[#d7c7a7] bg-white shadow-[0_16px_40px_rgba(22,46,74,0.12)]">
                 <div className="relative aspect-video overflow-hidden">
-                  <img
-                    src={HOME_VIDEO_THUMBNAIL}
-                    alt="Video preview for WAPPA mission overview"
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f243d]/65 via-[#143255]/30 to-transparent" />
+                  {HOME_FRAME_SLIDES.map((slide, idx) => (
+                    <img
+                      key={`${slide.label}-frame`}
+                      src={slide.image}
+                      alt={slide.alt}
+                      style={{ objectPosition: slide.objectPosition }}
+                      className={`absolute inset-0 h-full w-full object-cover transition-[opacity,transform] duration-[1100ms] ease-out ${
+                        idx === frameSlide ? "opacity-100 scale-100" : "opacity-0 scale-105"
+                      }`}
+                    />
+                  ))}
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f243d]/68 via-[#143255]/28 to-transparent" />
+                  <div className="absolute left-5 top-5">
+                    <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#f3e6c6]">
+                      Programme Showcase
+                    </div>
+                  </div>
                   <div className="absolute left-5 bottom-5 right-5 flex items-end justify-between">
                     <div>
-                      <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#f3e6c6] mb-2">
-                        Video Briefing
-                      </div>
                       <div className="font-display text-2xl text-white leading-tight">
                         WAPPA Overview
                       </div>
+                      <div className="mt-1 text-[10px] font-mono uppercase tracking-[0.16em] text-white/80">
+                        {HOME_FRAME_SLIDES[frameSlide].label}
+                      </div>
                     </div>
-                    <div className="size-12 rounded-full border border-white/70 bg-white/20 backdrop-blur-sm flex items-center justify-center text-white text-lg">
-                      Play
+                    <div className="flex items-center gap-1.5">
+                      {HOME_FRAME_SLIDES.map((slide, idx) => (
+                        <button
+                          key={`${slide.label}-dot`}
+                          type="button"
+                          onClick={() => setFrameSlide(idx)}
+                          aria-label={`Show ${slide.label} showcase`}
+                          className={`h-2 rounded-full transition-all ${
+                            idx === frameSlide
+                              ? "w-7 bg-[#f3d08b]"
+                              : "w-2 bg-white/55 hover:bg-white/80"
+                          }`}
+                        />
+                      ))}
                     </div>
                   </div>
                 </div>
-              </a>
+              </div>
             </div>
           </div>
         </div>
@@ -649,7 +689,7 @@ function Home() {
                 to="/supply"
                 className="rounded-sm bg-white text-[#123151] px-7 py-4 text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-[#f3f8ff] transition-colors"
               >
-                Start Supply Process
+                Start Supply Overview
               </Link>
               <Link
                 to="/members"

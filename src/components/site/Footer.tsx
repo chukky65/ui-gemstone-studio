@@ -45,17 +45,22 @@ export function Footer() {
               </li>
               <li>
                 <Link to="/supply" className="text-[#1f3956]/78 hover:text-[#8b6c2d]">
-                  Supply
+                  Supply Overview
+                </Link>
+              </li>
+              <li>
+                <Link to="/requirement" className="text-[#1f3956]/78 hover:text-[#8b6c2d]">
+                  Requirement
                 </Link>
               </li>
               <li>
                 <Link to="/profile" className="text-[#1f3956]/78 hover:text-[#8b6c2d]">
-                  Our Profile
+                  About Us
                 </Link>
               </li>
               <li>
                 <Link to="/contact" className="text-[#1f3956]/78 hover:text-[#8b6c2d]">
-                  Contact
+                  Contact Us
                 </Link>
               </li>
             </ul>
@@ -80,6 +85,12 @@ export function Footer() {
                 className="block text-[#153352] hover:text-[#8b6c2d]"
               >
                 info@wappaghana.org
+              </a>
+              <a
+                href="mailto:richard@wappaghana.org"
+                className="block text-[#153352] hover:text-[#8b6c2d]"
+              >
+                richard@wappaghana.org
               </a>
             </div>
           </div>

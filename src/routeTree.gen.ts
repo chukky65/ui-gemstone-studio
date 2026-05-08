@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SupplyRouteImport } from './routes/supply'
+import { Route as RequirementRouteImport } from './routes/requirement'
 import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as MembersRouteImport } from './routes/members'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -18,6 +19,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const SupplyRoute = SupplyRouteImport.update({
   id: '/supply',
   path: '/supply',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RequirementRoute = RequirementRouteImport.update({
+  id: '/requirement',
+  path: '/requirement',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProfileRoute = ProfileRouteImport.update({
@@ -46,6 +52,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/members': typeof MembersRoute
   '/profile': typeof ProfileRoute
+  '/requirement': typeof RequirementRoute
   '/supply': typeof SupplyRoute
 }
 export interface FileRoutesByTo {
@@ -53,6 +60,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/members': typeof MembersRoute
   '/profile': typeof ProfileRoute
+  '/requirement': typeof RequirementRoute
   '/supply': typeof SupplyRoute
 }
 export interface FileRoutesById {
@@ -61,14 +69,28 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/members': typeof MembersRoute
   '/profile': typeof ProfileRoute
+  '/requirement': typeof RequirementRoute
   '/supply': typeof SupplyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/contact' | '/members' | '/profile' | '/supply'
+  fullPaths:
+    | '/'
+    | '/contact'
+    | '/members'
+    | '/profile'
+    | '/requirement'
+    | '/supply'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contact' | '/members' | '/profile' | '/supply'
-  id: '__root__' | '/' | '/contact' | '/members' | '/profile' | '/supply'
+  to: '/' | '/contact' | '/members' | '/profile' | '/requirement' | '/supply'
+  id:
+    | '__root__'
+    | '/'
+    | '/contact'
+    | '/members'
+    | '/profile'
+    | '/requirement'
+    | '/supply'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -76,6 +98,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   MembersRoute: typeof MembersRoute
   ProfileRoute: typeof ProfileRoute
+  RequirementRoute: typeof RequirementRoute
   SupplyRoute: typeof SupplyRoute
 }
 
@@ -86,6 +109,13 @@ declare module '@tanstack/react-router' {
       path: '/supply'
       fullPath: '/supply'
       preLoaderRoute: typeof SupplyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/requirement': {
+      id: '/requirement'
+      path: '/requirement'
+      fullPath: '/requirement'
+      preLoaderRoute: typeof RequirementRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/profile': {
@@ -124,6 +154,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   MembersRoute: MembersRoute,
   ProfileRoute: ProfileRoute,
+  RequirementRoute: RequirementRoute,
   SupplyRoute: SupplyRoute,
 }
 export const routeTree = rootRouteImport

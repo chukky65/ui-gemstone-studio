@@ -60,9 +60,12 @@ function ContactPage() {
       <PageHero
         eyebrow="Get In Touch"
         breadcrumb="Contact Us"
+        imageSrc={contactBuildingImg}
+        imageAlt="WAPPA headquarters building in Accra."
+        imagePosition="50% 42%"
         title={
           <>
-            Contact <em className="text-[#8b6c2d] not-italic">WAPPA.</em>
+            Contact <em className="text-[#f2cb79] not-italic">WAPPA.</em>
           </>
         }
         intro="Whether you are a supplier, investor, partner organisation or member of the public - we welcome your enquiry. Our team is ready to assist you."
@@ -111,6 +114,12 @@ function ContactPage() {
                 >
                   info@wappaghana.org
                 </a>
+                <a
+                  href="mailto:richard@wappaghana.org"
+                  className="block text-night hover:text-clay break-all mt-1"
+                >
+                  richard@wappaghana.org
+                </a>
               </div>
               <div>
                 <div className="text-[10px] font-mono uppercase tracking-widest text-night/45 mb-1">
@@ -121,6 +130,12 @@ function ContactPage() {
                   className="text-night hover:text-clay break-all text-sm"
                 >
                   info@wappaghana.org
+                </a>
+                <a
+                  href="mailto:richard@wappaghana.org"
+                  className="block text-night hover:text-clay break-all text-sm mt-1"
+                >
+                  richard@wappaghana.org
                 </a>
               </div>
             </div>

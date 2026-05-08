@@ -3,52 +3,108 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { TopBar } from "@/components/site/TopBar";
 import { PageHero } from "@/components/site/PageHero";
+import heroInfrastructureImg from "@/assets/hero-infrastructure.png";
+import heroHealthcareImg from "@/assets/hero-healthcare.png";
+import heroSupplyOverviewGeneratedImg from "@/assets/hero-supply-overview-generated.png";
+import supplyOperationsGeneratedImg from "@/assets/supply-operations-generated.png";
+import tradeLogisticsGeneratedImg from "@/assets/trade-logistics-generated.png";
+import constructionSupplyGeneratedImg from "@/assets/construction-supply-generated.png";
+import agriculturalInputsGeneratedImg from "@/assets/agricultural-inputs-generated.png";
+import medicalEquipmentGeneratedImg from "@/assets/medical-equipment-generated.png";
+import energyMaterialsGeneratedImg from "@/assets/energy-materials-generated.png";
 import { Section, SectionFlow, SectionHeading, useToneTokens } from "@/components/site/Section";
 
 export const Route = createFileRoute("/supply")({
   component: SupplyPage,
   head: () => ({
     meta: [
-      { title: "Supply & Procurement — WAPPA" },
+      { title: "Supply Overview - WAPPA" },
       {
         name: "description",
         content:
-          "WAPPA procures goods and services on behalf of Ghana's public and private sectors. Contracts US$350K to US$375M. Active method: Sole Source Purchase (SSP).",
+          "Supply overview for WAPPA procurement programmes, methods, sectors, terms and SSP procedures.",
       },
-      { property: "og:title", content: "Supply & Procurement — WAPPA" },
+      { property: "og:title", content: "Supply Overview - WAPPA" },
       {
         property: "og:description",
         content:
-          "Transparent procurement aligned with international best practice. Three accepted methods. Six-step SSP supply process.",
+          "Transparent procurement, supply methods, donor support, and step-by-step procedures for suppliers.",
       },
+      { property: "og:image", content: heroSupplyOverviewGeneratedImg },
     ],
   }),
 });
+
+const SUPPLY_REFERENCE_IMAGES = [
+  {
+    src: supplyOperationsGeneratedImg,
+    label: "Supply Operations",
+    desc: "Warehouse distribution and packaging workflows",
+  },
+  {
+    src: tradeLogisticsGeneratedImg,
+    label: "Trade Logistics",
+    desc: "Cross-border road freight movement",
+  },
+  {
+    src: constructionSupplyGeneratedImg,
+    label: "Construction Supply",
+    desc: "Container handling and shipment readiness",
+  },
+] as const;
+
+const ADDITIONAL_SUPPLY_IMAGES = [
+  {
+    src: heroHealthcareImg,
+    label: "Healthcare Delivery",
+    desc: "Medical programme support and clinical supply readiness",
+  },
+  {
+    src: heroInfrastructureImg,
+    label: "Infrastructure Corridors",
+    desc: "Transport and civil works procurement pipelines",
+  },
+  {
+    src: agriculturalInputsGeneratedImg,
+    label: "Agricultural Inputs",
+    desc: "Crop and produce supply support for food security",
+  },
+  {
+    src: medicalEquipmentGeneratedImg,
+    label: "Medical Equipment",
+    desc: "Essential diagnostic devices and hospital equipment",
+  },
+  {
+    src: energyMaterialsGeneratedImg,
+    label: "Energy Materials",
+    desc: "Grid support and power infrastructure components",
+  },
+] as const;
 
 const METHODS = [
   { c: "A", a: "ICS", t: "International Competitive Supply", active: false },
   { c: "B", a: "D&IDPOG", t: "Direct & Indirect Purchase of Goods", active: false },
   { c: "C", a: "SSP", t: "Sole Source Purchase", active: true },
-];
+] as const;
 
 const SUPPLY_SECTORS = [
-  { n: "01", t: "Hospitals & Maternity", d: "Medical organisations & health systems" },
-  { n: "02", t: "Construction Companies", d: "Building & infrastructure firms" },
-  { n: "03", t: "Raw Materials", d: "Producing & extracting companies" },
-  { n: "04", t: "Agricultural Inputs & Outputs", d: "Agro processing & farming organisations" },
-  { n: "05", t: "Amusement & Recreation", d: "Parks & recreational agencies" },
-  { n: "06", t: "Consumer Electronics & Apparel", d: "Consumer goods & lifestyle products" },
-  { n: "07", t: "Vehicle Parts & Accessories", d: "Automotive components & parts" },
-  { n: "08", t: "Sports & Entertainment", d: "Sporting goods & entertainment supply" },
-  { n: "09", t: "Industrial Machinery", d: "Heavy equipment & machinery supply" },
-  { n: "10", t: "Home & Garden", d: "Household goods & garden products" },
-  { n: "11", t: "Fruits, Seeds & Produce", d: "Agricultural produce & seeds" },
-  { n: "12", t: "SkinCare & Health Products", d: "Personal health & wellness supply" },
-];
+  { n: "01", t: "Hospitals & Maternity", d: "Medical organisations and health systems" },
+  { n: "02", t: "Construction Companies", d: "Building and infrastructure firms" },
+  { n: "03", t: "Raw Materials", d: "Producing and extracting companies" },
+  { n: "04", t: "Agricultural Inputs & Outputs", d: "Agro processing and farming organisations" },
+  { n: "05", t: "Amusement & Recreation", d: "Parks and recreational agencies" },
+  { n: "06", t: "Consumer Electronics & Apparel", d: "Consumer goods and lifestyle products" },
+  { n: "07", t: "Vehicle Parts & Accessories", d: "Automotive components and parts" },
+  { n: "08", t: "Sports & Entertainment", d: "Sporting goods and entertainment supply" },
+  { n: "09", t: "Industrial Machinery", d: "Heavy equipment and machinery supply" },
+  { n: "10", t: "Home & Garden", d: "Household goods and garden products" },
+  { n: "11", t: "Fruits, Seeds & Produce", d: "Agricultural produce and seeds" },
+  { n: "12", t: "SkinCare & Health Products", d: "Personal health and wellness supply" },
+] as const;
 
 const PARTNERS = [
   { t: "UNDP / GEF-SGP", d: "UN Development Programme" },
-  { t: "AfDB / DFID", d: "African Development Bank & UK Aid" },
+  { t: "AfDB / DFID", d: "African Development Bank and UK Aid" },
   { t: "USAID", d: "US Agency for International Development" },
   { t: "UKSAID", d: "UK Strategic Aid Programme" },
   { t: "UNICEF", d: "UN Children's Fund" },
@@ -56,76 +112,76 @@ const PARTNERS = [
   { t: "World Bank", d: "International Bank for Reconstruction" },
   { t: "State Foreign Aid", d: "Bilateral state aid programmes" },
   { t: "Domestic Loans", d: "Government of Ghana financing" },
-];
+] as const;
 
 const STEPS = [
   {
     c: "A",
     t: "Submit Your Quotation Invoice",
-    d: "As a supplier, you may receive an official request directly from WAPPA containing product names, quantities and specifications. Prepare and submit your quotation invoice through WAPPA's official communication channels.",
+    d: "Suppliers submit quotation invoices through official WAPPA channels, including product names, quantities and technical specifications.",
   },
   {
     c: "B",
     t: "Offer Pre-Evaluation Process (OPEP)",
-    d: "WAPPA's Evaluation Team will carry out an Offer Pre-Evaluation Process (OPEP). If the offer meets criteria, the team will issue an Acknowledgment Letter, Customer Reference and File Numbers, along with Supply Validation Forms.",
+    d: "The evaluation team reviews initial offer quality and eligibility. Qualified suppliers receive acknowledgment details and validation forms.",
   },
   {
     c: "C",
-    t: "Final Assessment Supply Evaluation (FASE) — 12 to 48 Hours",
-    d: "Between 12 to 48 hours after the filled Validation Forms are received, the team will carry out a Final Assessment Supply Evaluation (FASE) on the filled forms alongside the supplier's quotation invoices.",
+    t: "Final Assessment Supply Evaluation (FASE)",
+    d: "Within 12 to 48 hours after completed validation forms are received, final review is performed on forms and quotation invoices.",
   },
   {
     c: "D",
-    t: "Supply Approval — Official Confirmation Letter",
-    d: "If your invoice receives general acceptance, FASE members issue an Official Confirmation Supply Approval Letter, followed by a direct call from Dr. Richard Kwabena, Projects Director - WAPPA.",
+    t: "Supply Approval and Confirmation",
+    d: "Approved suppliers receive an official confirmation letter and further onboarding instructions for validation and contract readiness.",
   },
   {
     c: "E",
     t: "Complete Supplier Compliance",
-    d: "The approved supplier is expected to complete supplier compliance by submitting the validation cost, one company certificate and the final quotation invoice as stated in the Validation Forms.",
+    d: "Suppliers complete compliance documentation, submit certificate evidence and final quotation version for procurement finalisation.",
   },
   {
     c: "F",
-    t: "Purchase Order Issued & Payment Transferred",
-    d: "After Supply Validation, the Supplier's Purchase Order, Payment Details and stamped Quotation Invoice are released. The bank will transfer 80% of the supply payment to the supplier's bank account. The remaining 20% is paid before shipment.",
+    t: "Purchase Order and Payment Release",
+    d: "After validation closes, purchase orders and payment instructions are issued. Standard release follows 80 percent advance and 20 percent pre-shipment settlement.",
   },
-];
+] as const;
 
 const TERMS = [
   { t: "Product Packaging", d: "According to your company's original export packaging standards." },
-  { t: "Supply Terms", d: "Price should be quoted on: CIF or FOB" },
-  { t: "Final Shipment Destination", d: "Tema Harbour Seaport, Republic of Ghana" },
+  { t: "Supply Terms", d: "Price should be quoted on CIF or FOB basis." },
+  { t: "Final Shipment Destination", d: "Tema Harbour Seaport, Republic of Ghana." },
   {
     t: "Payment Method",
-    d: "Bank to Bank Wire Transfer (T.T) — confirmed by your bank before production starts.",
+    d: "Bank to bank wire transfer, confirmed by your bank before production starts.",
   },
   {
     t: "Payment Terms",
-    d: "80% down payment to start production. 20% paid when product is ready for shipment.",
+    d: "80 percent down payment to start production and 20 percent before shipment.",
   },
   {
     t: "Inspection",
-    d: "SGS to confirm quantity at port of lading. Cost to be paid by the buyer.",
+    d: "SGS verifies quantity at port of lading. Inspection cost is paid by the buyer.",
   },
   {
     t: "Delivery Time",
-    d: "Maximum 360 days from the date the 80% advance payment is received by the supplier.",
+    d: "Maximum 360 days from date of confirmed 80 percent advance payment receipt.",
   },
-  { t: "Currency", d: "Invoice submitted currency: US Dollars or Euro only." },
+  { t: "Currency", d: "Accepted invoice currency is US Dollar or Euro only." },
   {
     t: "Supply Payment Duration",
-    d: "80% supply payment within 4–5 working days from invoice approval, after supply validation is completed.",
+    d: "80 percent payment is processed within 4 to 5 working days after approval and completed validation.",
   },
-  { t: "Purchase Order", d: "Will be issued immediately after supply validation is completed." },
+  { t: "Purchase Order", d: "Issued immediately once supply validation is fully completed." },
   {
     t: "Shipment Condition",
-    d: "Partial supply is accepted but cannot be more than 5 or 6 shipments.",
+    d: "Partial supply is accepted but should not exceed 5 to 6 shipment batches.",
   },
   {
     t: "Caution Notice",
-    d: "If approved, you must complete Supply Validation within THREE DAYS from the date of approval.",
+    d: "Approved suppliers should complete validation within 3 days from approval date.",
   },
-];
+] as const;
 
 function SupplyPage() {
   return (
@@ -135,13 +191,16 @@ function SupplyPage() {
 
       <PageHero
         eyebrow="Procurement Framework"
-        breadcrumb="Supply"
+        breadcrumb="Supply Overview"
+        imageSrc={heroSupplyOverviewGeneratedImg}
+        imageAlt="Major port and logistics operations supporting cross-border procurement delivery."
+        imagePosition="50% 50%"
         title={
           <>
-            Supply & <em className="text-[#8b6c2d] not-italic">procurement.</em>
+            Supply <em className="text-[#f2cb79] not-italic">overview.</em>
           </>
         }
-        intro="WAPPA procures goods and services on behalf of Ghana's public and private sectors — using transparent, accountable procurement methods aligned with international best practice."
+        intro="WAPPA procures goods and services for public and private sector programmes in Ghana and across West Africa, using transparent procurement methods and accountable delivery controls."
       />
 
       <section className="gdsp-bright-band border-b border-night/10">
@@ -149,7 +208,7 @@ function SupplyPage() {
           {[
             { v: "$375M", l: "Max Contract Value" },
             { v: "$350K", l: "Min Contract Value" },
-            { v: "SSP", l: "Primary Method" },
+            { v: "SSP", l: "Current Method" },
             { v: "80 / 20", l: "Payment Split" },
           ].map((s) => (
             <div key={s.l} className="p-6 sm:p-8 lg:p-10 hover:bg-white/55 transition-colors">
@@ -164,22 +223,25 @@ function SupplyPage() {
 
       <SectionFlow start="light">
         <Section atmosphere="spot">
+          <VisualGalleryBlock />
+        </Section>
+        <Section padding="tight">
           <AboutBlock />
         </Section>
-        <Section padding="tight">
+        <Section atmosphere="spot">
           <MethodsBlock />
         </Section>
-        <Section atmosphere="spot">
-          <SectorsBlock />
-        </Section>
         <Section padding="tight">
-          <PartnersBlock />
+          <SectorsBlock />
         </Section>
         <Section atmosphere="grid">
           <StepsBlock />
         </Section>
         <Section padding="tight">
           <TermsBlock />
+        </Section>
+        <Section atmosphere="spot">
+          <PartnersBlock />
         </Section>
         <Section className="text-center">
           <CTABlock />
@@ -188,6 +250,66 @@ function SupplyPage() {
 
       <Footer />
     </div>
+  );
+}
+
+function VisualGalleryBlock() {
+  const t = useToneTokens();
+  return (
+    <>
+      <SectionHeading eyebrow="Supply Visuals" size="xl">
+        Replicated images and{" "}
+        <em className={`${t.accent} not-italic`}>expanded programme gallery.</em>
+      </SectionHeading>
+      <p className={`mt-6 ${t.textMuted} max-w-3xl mb-12 leading-relaxed`}>
+        The first row mirrors the supply imagery from the reference page. The second row adds more
+        relevant visuals to give suppliers and partners clearer operational context.
+      </p>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+        {SUPPLY_REFERENCE_IMAGES.map((img) => (
+          <article
+            key={img.label}
+            className={`border ${t.border} ${t.cardBg} overflow-hidden ${t.cardBgHover} transition-colors`}
+          >
+            <div className="aspect-[16/10] overflow-hidden">
+              <img
+                src={img.src}
+                alt={img.label}
+                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+            <div className="p-5">
+              <div className={`font-display text-2xl ${t.text} mb-1`}>{img.label}</div>
+              <p className={`text-sm ${t.textMuted}`}>{img.desc}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        {ADDITIONAL_SUPPLY_IMAGES.map((img, idx) => (
+          <article key={img.label} className={`border ${t.border} ${t.cardBg} overflow-hidden`}>
+            <div className="aspect-square overflow-hidden">
+              <img
+                src={img.src}
+                alt={img.label}
+                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+            <div className="p-4">
+              <div className={`text-[10px] font-mono uppercase tracking-widest ${t.accent} mb-2`}>
+                Image {String(idx + 1).padStart(2, "0")}
+              </div>
+              <h3 className={`font-display text-lg ${t.text} leading-tight mb-1`}>{img.label}</h3>
+              <p className={`text-xs ${t.textMuted}`}>{img.desc}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </>
   );
 }
 
@@ -202,19 +324,17 @@ function AboutBlock() {
       </div>
       <div className={`lg:col-span-7 space-y-5 text-lg ${t.textMuted} leading-relaxed`}>
         <p>
-          West Africa's Premier Procurement Authority procures products and services on behalf of
-          both private and public sector organisations. All contracts are valued between $350,000
-          and $375,000,000 USD and are financed in whole or in part with public and private funds.
+          WAPPA procures products and services for both public and private sector organisations.
+          Contracts are typically valued between 350,000 USD and 375,000,000 USD and are financed in
+          whole or in part with public and private funds.
         </p>
         <p>
-          WAPPA has been assigned responsibility to procure products from verified suppliers and
-          companies for the use of Ghana's healthcare, construction, agricultural, industrial and
-          consumer sectors — ensuring value for money through a rigorous evaluation process.
+          We work with verified suppliers across healthcare, construction, agriculture, industrial
+          and consumer sectors, ensuring strong value-for-money outcomes through strict evaluation.
         </p>
         <p>
-          The aim is to make judicious use of public funds from capable, reliable and verified
-          companies that can deliver value for money — protecting consumers and the public from
-          uncertified or unauthorised supply sources.
+          The objective is to protect public resources and improve procurement quality by engaging
+          qualified suppliers with proven capacity, compliance readiness and delivery reliability.
         </p>
       </div>
     </div>
@@ -229,9 +349,8 @@ function MethodsBlock() {
         Three accepted <em className={`${t.accent} not-italic`}>supply methods.</em>
       </SectionHeading>
       <p className={`mt-4 ${t.textMuted} max-w-3xl mb-16 leading-relaxed`}>
-        WAPPA accepts quotation invoices through any of the following three procurement frameworks.
-        The active method for current supply orders is{" "}
-        <span className={t.accent}>SSP — Sole Source Purchase</span>.
+        WAPPA accepts quotation invoices through three procurement frameworks. The active method for
+        current supply orders is <span className={t.accent}>SSP - Sole Source Purchase</span>.
       </p>
       <div className={`grid grid-cols-1 md:grid-cols-3 gap-px ${t.divider} border ${t.border}`}>
         {METHODS.map((m) => {
@@ -269,12 +388,24 @@ function SectorsBlock() {
   const t = useToneTokens();
   return (
     <>
-      <SectionHeading eyebrow="Sectors We Supply" size="xl">
-        Products procured across <em className={`${t.accent} not-italic`}>12 sectors.</em>
-      </SectionHeading>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-14 items-end">
+        <div className="lg:col-span-7">
+          <SectionHeading eyebrow="Sectors We Supply" size="xl">
+            Products procured across <em className={`${t.accent} not-italic`}>12 sectors.</em>
+          </SectionHeading>
+        </div>
+        <div className="lg:col-span-5 flex justify-start lg:justify-end">
+          <Link
+            to="/requirement"
+            className={`${t.btnGhost} px-6 py-3 text-[11px] font-mono uppercase tracking-[0.2em] transition-colors w-full sm:w-auto text-center`}
+          >
+            View Requirement Page
+          </Link>
+        </div>
+      </div>
       <p className={`mt-6 ${t.textMuted} max-w-3xl mb-16 leading-relaxed`}>
-        WAPPA manages supply contracts across 12 sectors — from healthcare and construction to
-        agricultural inputs and consumer goods.
+        Supply programmes span healthcare, construction, agriculture and consumer categories. For
+        full category-level product requirements, open the Requirement page.
       </p>
       <div
         className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px ${t.divider} border ${t.border}`}
@@ -299,50 +430,6 @@ function SectorsBlock() {
   );
 }
 
-function PartnersBlock() {
-  const t = useToneTokens();
-  return (
-    <>
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16 items-end">
-        <div className="lg:col-span-7">
-          <SectionHeading eyebrow="Funding Partners">
-            Donor & partner <em className={`${t.accent} not-italic`}>organisations.</em>
-          </SectionHeading>
-        </div>
-        <p className={`lg:col-span-5 ${t.textMuted} leading-relaxed`}>
-          WAPPA's supply programmes are supported by a network of international donors, development
-          finance institutions and bilateral partners.
-        </p>
-      </div>
-      <div
-        className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px ${t.divider} border ${t.border} mb-12`}
-      >
-        {PARTNERS.map((p) => (
-          <div key={p.t} className={`${t.cardBg} p-8`}>
-            <div className={`font-display text-2xl ${t.accent} mb-2`}>{p.t}</div>
-            <div className={`text-sm ${t.textMuted}`}>{p.d}</div>
-          </div>
-        ))}
-      </div>
-      <div className={`grid grid-cols-2 lg:grid-cols-4 divide-x ${t.divider} border ${t.border}`}>
-        {[
-          { v: "US$973.6M", l: "MoU Agreement Value" },
-          { v: "US$756.2M", l: "Economic Grant Secured" },
-          { v: "US$68.8M", l: "Hospital & Farming Projects" },
-          { v: "9", l: "Donor Partners" },
-        ].map((s) => (
-          <div key={s.l} className={`p-8 ${t.cardBg}`}>
-            <div className={`font-display text-3xl ${t.accent} tabular-nums mb-3`}>{s.v}</div>
-            <div className={`text-[10px] font-mono uppercase tracking-widest ${t.textFaint}`}>
-              {s.l}
-            </div>
-          </div>
-        ))}
-      </div>
-    </>
-  );
-}
-
 function StepsBlock() {
   const t = useToneTokens();
   return (
@@ -351,9 +438,8 @@ function StepsBlock() {
         Supply procedures using <em className={`${t.accent} not-italic`}>SSP method.</em>
       </SectionHeading>
       <p className={`mt-6 ${t.textMuted} max-w-3xl mb-16 leading-relaxed`}>
-        In accordance with our administrative procedures, WAPPA is currently using Sole Source
-        Purchase (SSP). Follow these steps to submit your quotation invoice and complete the supply
-        validation process.
+        These steps show how suppliers move from quotation submission to approval, compliance and
+        purchase order issuance.
       </p>
       <div className={`space-y-px ${t.divider} border ${t.border}`}>
         {STEPS.map((s) => (
@@ -384,7 +470,7 @@ function TermsBlock() {
   return (
     <>
       <SectionHeading eyebrow="Terms & Conditions" size="xl" className="mb-16">
-        Supply terms & <em className={`${t.accent} not-italic`}>conditions.</em>
+        Supply terms and <em className={`${t.accent} not-italic`}>conditions.</em>
       </SectionHeading>
       <div
         className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px ${t.divider} border ${t.border}`}
@@ -400,14 +486,57 @@ function TermsBlock() {
       </div>
       <div className={`mt-12 border-l-2 ${t.accentBorder} pl-8 py-2`}>
         <div className={`text-[10px] font-mono uppercase tracking-widest ${t.accent} mb-2`}>
-          Why Validation is Mandatory
+          Why validation is mandatory
         </div>
         <p className={`${t.textMuted} leading-relaxed max-w-4xl`}>
-          The purpose of Supply Validation is to protect consumers and the country against the use
-          of imported products from unknown, uncertified or unauthorised companies. Product
-          Registration is a constitutional mandate under the Public Health Act of 1999, Constitution
-          of the Republic of Ghana.
+          Supply validation protects public consumers and institutions against uncertified or
+          unauthorised products. It also helps legalise approved supply orders and improve
+          accountability across the entire procurement lifecycle.
         </p>
+      </div>
+    </>
+  );
+}
+
+function PartnersBlock() {
+  const t = useToneTokens();
+  return (
+    <>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16 items-end">
+        <div className="lg:col-span-7">
+          <SectionHeading eyebrow="Funding Partners">
+            Donor and partner <em className={`${t.accent} not-italic`}>organisations.</em>
+          </SectionHeading>
+        </div>
+        <p className={`lg:col-span-5 ${t.textMuted} leading-relaxed`}>
+          Supply programmes are supported by international donors, development finance institutions
+          and bilateral partners.
+        </p>
+      </div>
+      <div
+        className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px ${t.divider} border ${t.border} mb-12`}
+      >
+        {PARTNERS.map((p) => (
+          <div key={p.t} className={`${t.cardBg} p-8`}>
+            <div className={`font-display text-2xl ${t.accent} mb-2`}>{p.t}</div>
+            <div className={`text-sm ${t.textMuted}`}>{p.d}</div>
+          </div>
+        ))}
+      </div>
+      <div className={`grid grid-cols-2 lg:grid-cols-4 divide-x ${t.divider} border ${t.border}`}>
+        {[
+          { v: "US$973.6M", l: "MoU Agreement Value" },
+          { v: "US$756.2M", l: "Economic Grant Secured" },
+          { v: "US$68.8M", l: "Hospital and Farming Projects" },
+          { v: "9", l: "Donor Partners" },
+        ].map((s) => (
+          <div key={s.l} className={`p-8 ${t.cardBg}`}>
+            <div className={`font-display text-3xl ${t.accent} tabular-nums mb-3`}>{s.v}</div>
+            <div className={`text-[10px] font-mono uppercase tracking-widest ${t.textFaint}`}>
+              {s.l}
+            </div>
+          </div>
+        ))}
       </div>
     </>
   );
@@ -426,8 +555,8 @@ function CTABlock() {
         Ready to submit your <em className={`${t.accent} not-italic`}>quotation?</em>
       </h2>
       <p className={`${t.textMuted} max-w-2xl mx-auto mb-10 leading-relaxed`}>
-        Contact WAPPA to begin the supply submission process. Our evaluation team is ready to assess
-        your quotation invoice.
+        Contact WAPPA to begin supply submission. You can also review detailed category and legal
+        requirement notes on the Requirement page.
       </p>
       <div className="flex flex-wrap justify-center gap-3">
         <Link
@@ -437,10 +566,10 @@ function CTABlock() {
           Contact WAPPA
         </Link>
         <Link
-          to="/members"
+          to="/requirement"
           className={`${t.btnGhost} px-8 py-5 text-[11px] font-bold uppercase tracking-[0.2em] transition-colors w-full sm:w-auto text-center`}
         >
-          Meet Our Board
+          Open Requirement
         </Link>
       </div>
     </>
