@@ -115,10 +115,10 @@ function ContactPage() {
                   info@wappaghana.org
                 </a>
                 <a
-                  href="mailto:richard@wappaghana.org"
+                  href="mailto:westafricaprocurementauthority@gmail.com"
                   className="block text-night hover:text-clay break-all mt-1"
                 >
-                  richard@wappaghana.org
+                  westafricaprocurementauthority@gmail.com
                 </a>
               </div>
               <div>
