@@ -125,17 +125,23 @@ function ContactPage() {
                 <div className="text-[10px] font-mono uppercase tracking-widest text-night/45 mb-1">
                   Partnerships
                 </div>
-                <a
-                  href="mailto:info@wappaghana.org"
-                  className="text-night hover:text-clay break-all text-sm"
-                >
-                  info@wappaghana.org
-                </a>
+                <div className="text-[10px] font-mono uppercase tracking-widest text-night/45">
+                  Chairman
+                </div>
                 <a
                   href="mailto:richard@wappaghana.org"
                   className="block text-night hover:text-clay break-all text-sm mt-1"
                 >
                   richard@wappaghana.org
+                </a>
+                <div className="text-[10px] font-mono uppercase tracking-widest text-night/45 mt-3">
+                  Vice Chairman
+                </div>
+                <a
+                  href="mailto:kojo@wappaghana.org"
+                  className="block text-night hover:text-clay break-all text-sm mt-1"
+                >
+                  kojo@wappaghana.org
                 </a>
               </div>
             </div>

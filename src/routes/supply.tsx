@@ -399,7 +399,7 @@ function SectorsBlock() {
             to="/requirement"
             className={`${t.btnGhost} px-6 py-3 text-[11px] font-mono uppercase tracking-[0.2em] transition-colors w-full sm:w-auto text-center`}
           >
-            View Requirement Page
+            View Requirements Page
           </Link>
         </div>
       </div>
@@ -556,7 +556,7 @@ function CTABlock() {
       </h2>
       <p className={`${t.textMuted} max-w-2xl mx-auto mb-10 leading-relaxed`}>
         Contact WAPPA to begin supply submission. You can also review detailed category and legal
-        requirement notes on the Requirement page.
+        requirement notes on the Requirements page.
       </p>
       <div className="flex flex-wrap justify-center gap-3">
         <Link
@@ -569,7 +569,7 @@ function CTABlock() {
           to="/requirement"
           className={`${t.btnGhost} px-8 py-5 text-[11px] font-bold uppercase tracking-[0.2em] transition-colors w-full sm:w-auto text-center`}
         >
-          Open Requirement
+          Open Requirements
         </Link>
       </div>
     </>

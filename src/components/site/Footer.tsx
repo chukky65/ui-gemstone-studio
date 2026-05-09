@@ -50,7 +50,7 @@ export function Footer() {
               </li>
               <li>
                 <Link to="/requirement" className="text-[#1f3956]/78 hover:text-[#8b6c2d]">
-                  Requirement
+                  Requirements
                 </Link>
               </li>
               <li>

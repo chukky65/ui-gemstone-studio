@@ -25,13 +25,13 @@ export const Route = createFileRoute("/requirement")({
   component: RequirementPage,
   head: () => ({
     meta: [
-      { title: "Requirement - WAPPA" },
+      { title: "Requirements - WAPPA" },
       {
         name: "description",
         content:
           "Supply requirement page covering category requirements, invoice conditions, SSP process and supplier compliance expectations.",
       },
-      { property: "og:title", content: "Requirement - WAPPA" },
+      { property: "og:title", content: "Requirements - WAPPA" },
       {
         property: "og:description",
         content:
@@ -190,7 +190,7 @@ function RequirementPage() {
 
       <PageHero
         eyebrow="Supply Requirement"
-        breadcrumb="Requirement"
+        breadcrumb="Requirements"
         imageSrc={heroRequirementGeneratedImg}
         imageAlt="Medical and industrial supply requirement showcase."
         imagePosition="50% 50%"
