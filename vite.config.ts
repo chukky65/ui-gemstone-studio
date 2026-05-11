@@ -9,6 +9,7 @@ import tsConfigPaths from "vite-tsconfig-paths";
 export default defineConfig(({ command }) => {
   const isBuild = command === "build";
   const isNetlifyBuild = process.env.NETLIFY === "true";
+  const isCloudflareBuild = process.env.CLOUDFLARE === "true";
 
   return {
     plugins: [
@@ -22,11 +23,16 @@ export default defineConfig(({ command }) => {
             specifiers: ["server-only"],
           },
         },
+        prerender: {
+          enabled: true,
+          crawlLinks: true,
+          failOnError: true,
+        },
       }),
       react(),
       ...(isBuild && isNetlifyBuild
         ? [netlify()]
-        : isBuild
+        : isBuild && isCloudflareBuild
           ? [cloudflare({ viteEnvironment: { name: "ssr" } })]
           : []),
     ],
