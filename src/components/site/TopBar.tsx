@@ -4,7 +4,7 @@ export function TopBar() {
       <div className="flex flex-wrap gap-x-6 gap-y-1 justify-start">
         <span>No. 12 Independence Avenue - Ridge District, Accra</span>
         <span className="hidden sm:inline">info@wappaghana.org</span>
-        <span className="hidden lg:inline">+233 270955659</span>
+        <span className="hidden lg:inline">+233 560930117</span>
       </div>
       <div className="inline-flex items-center gap-2 rounded-sm border border-[#ceb98d] bg-white/65 px-2.5 py-1 text-[#7a5f2a]">
         <span className="size-1 rounded-full bg-[#8b6c2d] animate-pulse" />

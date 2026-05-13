@@ -98,10 +98,10 @@ function ContactPage() {
                   Phone
                 </div>
                 <a
-                  href="tel:+233270955659"
+                  href="tel:+233560930117"
                   className="font-display text-xl hover:text-clay text-night"
                 >
-                  +233 270955659
+                  +233 560930117
                 </a>
               </div>
               <div>

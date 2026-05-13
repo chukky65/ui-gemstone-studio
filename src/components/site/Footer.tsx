@@ -77,8 +77,8 @@ export function Footer() {
               <div>Greater Accra Region, Republic of Ghana</div>
             </address>
             <div className="mt-6 space-y-2 text-sm">
-              <a href="tel:+233270955659" className="block text-[#153352] hover:text-[#8b6c2d]">
-                +233 270955659
+              <a href="tel:+233560930117" className="block text-[#153352] hover:text-[#8b6c2d]">
+                +233 560930117
               </a>
               <a
                 href="mailto:info@wappaghana.org"
