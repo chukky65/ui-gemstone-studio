@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { TopBar } from "@/components/site/TopBar";
@@ -189,10 +189,46 @@ function ContactPage() {
 function FormBlock() {
   const t = useToneTokens();
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const focusClass =
     t.tone === "dark"
       ? "focus-visible:border-gold focus-visible:ring-2 focus-visible:ring-gold/35"
       : "focus-visible:border-clay focus-visible:ring-2 focus-visible:ring-clay/35";
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSubmitError("");
+    setSubmitting(true);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    formData.append("_subject", "New WAPPA contact form enquiry");
+    formData.append("_template", "table");
+    formData.append("_captcha", "false");
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/info@wappaghana.org", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
+
+      setSent(true);
+      form.reset();
+    } catch {
+      setSubmitError("We could not send your message right now. Please try again shortly.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
@@ -228,10 +264,7 @@ function FormBlock() {
           </div>
         ) : (
           <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              setSent(true);
-            }}
+            onSubmit={handleSubmit}
             className={`border ${t.border} p-8 lg:p-10 ${t.softCardBg} backdrop-blur-sm space-y-6`}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -301,11 +334,17 @@ function FormBlock() {
                 Privacy Policy and Terms of Use.
               </span>
             </label>
+            {submitError ? (
+              <p className="text-sm text-[#b63a3a]" role="alert">
+                {submitError}
+              </p>
+            ) : null}
             <button
               type="submit"
+              disabled={submitting}
               className={`w-full ${t.btnPrimary} px-7 py-5 text-[11px] font-bold uppercase tracking-[0.2em] transition-colors`}
             >
-              Send Enquiry -&gt;
+              {submitting ? "Sending..." : "Send Enquiry ->"}
             </button>
           </form>
         )}
