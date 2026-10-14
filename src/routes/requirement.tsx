@@ -9,11 +9,14 @@ import reqWheatGeneratedImg from "@/assets/req-wheat-generated.png";
 import reqMaizeGeneratedImg from "@/assets/req-maize-generated.png";
 import reqSugarcaneGeneratedImg from "@/assets/req-sugarcane-generated.png";
 import reqSoyaBeansGeneratedImg from "@/assets/req-soya-beans-generated.png";
-import reqGeneralMedicalEquipmentGeneratedImg from "@/assets/req-general-medical-equipment-generated.png";
-import reqPharmaceuticalProductsGeneratedImg from "@/assets/req-pharmaceutical-products-generated.png";
-import reqBandagesCottonGeneratedImg from "@/assets/req-bandages-cotton-generated.png";
-import reqStethoscopeDiagnosticsGeneratedImg from "@/assets/req-stethoscope-diagnostics-generated.png";
-import reqSurgicalConsumablesGeneratedImg from "@/assets/req-surgical-consumables-generated.png";
+import medicalDisposableApparelImg from "@/assets/medical-disposable-apparel.jpeg";
+import medicalDisposableProductsCollageImg from "@/assets/medical-disposable-products-collage.jpeg";
+import medicalUrinaryDrainageKitImg from "@/assets/medical-urinary-drainage-kit.jpeg";
+import medicalIvCannulasImg from "@/assets/medical-iv-cannulas.jpeg";
+import medicalIvInfusionSetImg from "@/assets/medical-iv-infusion-set.jpeg";
+import medicalSpecimenContainersImg from "@/assets/medical-specimen-containers.jpeg";
+import medicalDisposableGlovesImg from "@/assets/medical-disposable-gloves.jpeg";
+import medicalSurgicalMasksImg from "@/assets/medical-surgical-masks.jpeg";
 import reqEarthmovingEquipmentGeneratedImg from "@/assets/req-earthmoving-equipment-generated.png";
 import reqCementGeneratedImg from "@/assets/req-cement-generated.png";
 import reqSteelBarsGeneratedImg from "@/assets/req-steel-bars-generated.png";
@@ -44,6 +47,45 @@ export const Route = createFileRoute("/requirement")({
 
 const CATEGORY_GROUPS = [
   {
+    title: "Medical Equipment & Disposable Products",
+    intro:
+      "Procurement categories for hospitals, clinics, emergency systems and essential disposable medical supplies.",
+    items: [
+      {
+        name: "Disposable Surgical Apparel",
+        image: medicalDisposableApparelImg,
+      },
+      {
+        name: "Disposable Medical Products",
+        image: medicalDisposableProductsCollageImg,
+      },
+      {
+        name: "Urinary Drainage Bags & Kits",
+        image: medicalUrinaryDrainageKitImg,
+      },
+      {
+        name: "IV Cannulas",
+        image: medicalIvCannulasImg,
+      },
+      {
+        name: "IV Infusion Sets",
+        image: medicalIvInfusionSetImg,
+      },
+      {
+        name: "Specimen Containers",
+        image: medicalSpecimenContainersImg,
+      },
+      {
+        name: "Disposable Medical Gloves",
+        image: medicalDisposableGlovesImg,
+      },
+      {
+        name: "Surgical Face Masks",
+        image: medicalSurgicalMasksImg,
+      },
+    ],
+  },
+  {
     title: "Agricultural Products",
     intro: "Supplies for food security, farm productivity and agro value-chain support programmes.",
     items: [
@@ -66,33 +108,6 @@ const CATEGORY_GROUPS = [
       {
         name: "Soya Beans",
         image: reqSoyaBeansGeneratedImg,
-      },
-    ],
-  },
-  {
-    title: "Medical Equipment & Supplies",
-    intro:
-      "Procurement categories for hospitals, clinics, emergency systems and pharmaceutical support chains.",
-    items: [
-      {
-        name: "General Medical Equipment",
-        image: reqGeneralMedicalEquipmentGeneratedImg,
-      },
-      {
-        name: "Pharmaceutical Products",
-        image: reqPharmaceuticalProductsGeneratedImg,
-      },
-      {
-        name: "Bandages & Cotton Wool",
-        image: reqBandagesCottonGeneratedImg,
-      },
-      {
-        name: "Stethoscope & Diagnostics",
-        image: reqStethoscopeDiagnosticsGeneratedImg,
-      },
-      {
-        name: "Surgical Consumables",
-        image: reqSurgicalConsumablesGeneratedImg,
       },
     ],
   },
